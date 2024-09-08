@@ -1,0 +1,2 @@
+Update project to LTS, if you wish.
+Once you open the project go to Scenes folder and open SampleScene. 
