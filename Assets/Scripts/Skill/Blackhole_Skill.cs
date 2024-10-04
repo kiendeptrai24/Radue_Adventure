@@ -27,7 +27,7 @@ public class Blackhole_Skill : Skill
     }
     private void UnlockBlackHole()
     {
-        if(blackHoleUnlockButton.unclocked)
+        if(blackHoleUnlockButton.unlocked)
             blackholeUnlocked = true;
     }
     protected override void Update()
@@ -60,5 +60,9 @@ public class Blackhole_Skill : Skill
     public float GetBlackholeRadios()
     {
         return maxSize/2;
+    }
+    protected override void CheckUnlock()
+    {
+        UnlockBlackHole();
     }
 }

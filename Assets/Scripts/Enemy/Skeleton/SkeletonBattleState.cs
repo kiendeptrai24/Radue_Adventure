@@ -21,7 +21,7 @@ public class SkeletonBattleState : EnemyState
         base.Update();
         if(enemy_Skeleton.IsPlayerDetected())
         {
-            stateTimer= enemy_Skeleton.battleTime;
+            stateTimer = enemy_Skeleton.battleTime;
             if(enemy_Skeleton.IsPlayerDetected().distance < enemy_Skeleton.attackDistance)
             {              
                 if(CanAttack())
@@ -38,7 +38,7 @@ public class SkeletonBattleState : EnemyState
 
         if(player.position.x >enemy_Skeleton.transform.position.x)
         {
-            moveDir =1;
+            moveDir = 1;
         }
         else if(player.position.x < enemy_Skeleton.transform.position.x)
         {

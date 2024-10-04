@@ -18,7 +18,7 @@ public class EntityFX : MonoBehaviour
     [SerializeField] private Color[] shockColor;
     private void Start() {
         sr =GetComponentInChildren<SpriteRenderer>();
-        originalMat=sr.sharedMaterial;
+        originalMat = sr.sharedMaterial;
     }
     public void MakeTransprent(bool _tranprent)
     {

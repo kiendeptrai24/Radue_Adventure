@@ -47,7 +47,7 @@ public class CloneSkill : Skill
 
     private void UnlockCloneAttack()
     {
-        if(cloneAttackUnlockButton.unclocked)
+        if(cloneAttackUnlockButton.unlocked)
         {
             canAttack = true;
             attackMultiplier =cloneAttackMultiplier;
@@ -55,7 +55,7 @@ public class CloneSkill : Skill
     }
     private void UnlockAggresiveClone()
     {
-        if(aggresiveCloneUnlockButton.unclocked)
+        if(aggresiveCloneUnlockButton.unlocked)
         {
             canApplyOnHitEffect = true;
             attackMultiplier = multiCloneAttackMultiplier;
@@ -63,7 +63,7 @@ public class CloneSkill : Skill
     }
     private void UnlockMultiClone()
     {
-        if(multipleUnlockButton.unclocked)
+        if(multipleUnlockButton.unlocked)
         {
             canDuplicateClone = true;
             attackMultiplier = multiCloneAttackMultiplier;
@@ -71,7 +71,7 @@ public class CloneSkill : Skill
     }
     private void UnlockCrystalInstead()
     {
-        if(crystalInsteadUnlockButton.unclocked)
+        if(crystalInsteadUnlockButton.unlocked)
         {
             crystalInsteadOfClone = true;
         }
@@ -83,7 +83,15 @@ public class CloneSkill : Skill
 
 
     #endregion
-   
+
+    protected override void CheckUnlock()
+    {
+        UnlockCloneAttack();
+        UnlockAggresiveClone();
+        UnlockMultiClone();
+        UnlockCrystalInstead();
+
+    }
     public void CreateClone(Transform _clonePosition,Vector3 _offset)
     {
         //new

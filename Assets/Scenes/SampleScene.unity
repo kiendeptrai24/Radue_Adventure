@@ -323,8 +323,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915676}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.86, y: -4.13, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.43044, y: 0.27799225, z: 0.14006346}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -334,7 +334,7 @@ Transform:
   - {fileID: 1882660257}
   - {fileID: 1500654533}
   - {fileID: 1413757336}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51440302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1915680
 Rigidbody2D:
@@ -2030,6 +2030,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47405612}
   m_CullTransparentMesh: 1
+--- !u!1 &51440301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 51440302}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &51440302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51440301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.429559, y: -4.4079924, z: -0.14006346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1915678}
+  - {fileID: 684483059}
+  - {fileID: 460816380}
+  - {fileID: 1018128177}
+  - {fileID: 1611502607}
+  - {fileID: 1155282122}
+  - {fileID: 1297848412}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &52584595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,7 +2312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2282,15 +2320,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2322,11 +2360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1253.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2457,7 +2495,7 @@ MonoBehaviour:
   skillDescription: "Leave a crystal behind.\nYou can no longer return to crystal.\nCrystal
     slowly move\u2019s toward  enemies."
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 1612437092}
   shouldBeLocked: []
@@ -3368,7 +3406,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 185}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &139946354
 MonoBehaviour:
@@ -4127,7 +4165,7 @@ MonoBehaviour:
     You mirage
     can apply on hit effect'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 871429152}
   shouldBeLocked: []
@@ -4261,7 +4299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4269,15 +4307,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4309,11 +4347,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 353.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4826,7 +4864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4834,15 +4872,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4874,11 +4912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 853.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5100,10 +5138,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 717923305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.7645, y: -70.51999}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240798715
 MonoBehaviour:
@@ -5568,7 +5606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5576,15 +5614,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5616,11 +5654,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 53.234497
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5812,7 +5850,7 @@ MonoBehaviour:
     By clicking abiltiy again ,you
     can return to crystal'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked: []
   shouldBeLocked: []
   lockedSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
@@ -6081,7 +6119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6089,15 +6127,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6129,11 +6167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 553.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6783,7 +6821,7 @@ MonoBehaviour:
     Sucsessful parry will stun
     enemies'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked: []
   shouldBeLocked: []
   lockedSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
@@ -7491,7 +7529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7499,15 +7537,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7539,11 +7577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1553.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7703,7 +7741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7711,15 +7749,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7751,11 +7789,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1453.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8023,7 +8061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8031,15 +8069,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8071,11 +8109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 953.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8946,10 +8984,10 @@ RectTransform:
   - {fileID: 1867214299}
   m_Father: {fileID: 30471186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 262.5, y: -37.5}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &437837317
 GameObject:
@@ -9968,7 +10006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &460005217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10403,8 +10441,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460816373}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.29, y: 1.41, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.860441, y: 5.817992, z: 0.14006346}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10414,7 +10452,7 @@ Transform:
   - {fileID: 203085189}
   - {fileID: 1241223146}
   - {fileID: 168924074}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51440302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &476206733
 GameObject:
@@ -10724,10 +10762,10 @@ RectTransform:
   - {fileID: 1791788780}
   m_Father: {fileID: 846670242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 715, y: -50}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498989534
 MonoBehaviour:
@@ -10849,7 +10887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -10857,15 +10895,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10897,11 +10935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1053.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11442,7 +11480,7 @@ MonoBehaviour:
   skillDescription: "You can throw your sword to spin it at one place.\nTurns your
     sword into a spinning saw that can trigger on hit effects. \n"
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 1664182628}
   shouldBeLocked:
@@ -12473,7 +12511,7 @@ MonoBehaviour:
     Sword now can
     bounce between N targets.'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 1664182628}
   shouldBeLocked:
@@ -12596,10 +12634,10 @@ RectTransform:
   - {fileID: 2070519833}
   m_Father: {fileID: 30471186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.5, y: -37.5}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &590875682
 CanvasRenderer:
@@ -13304,7 +13342,7 @@ MonoBehaviour:
   skillName: Blackhole
   skillDescription: 
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 871429152}
   shouldBeLocked: []
@@ -14110,7 +14148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -14118,15 +14156,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14158,11 +14196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 153.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14419,8 +14457,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684483052}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.45, y: 0.61, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.020441, y: 5.0179925, z: 0.14006346}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14430,7 +14468,7 @@ Transform:
   - {fileID: 1317167137}
   - {fileID: 1353517810}
   - {fileID: 1641715307}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51440302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690692301
 GameObject:
@@ -14952,7 +14990,7 @@ MonoBehaviour:
   skillName: 'Dodge '
   skillDescription: You have 10% chance to avoid incomn attack
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked: []
   shouldBeLocked: []
   lockedSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
@@ -15201,7 +15239,7 @@ MonoBehaviour:
 
     You leave mirror image behind'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 742694606}
   shouldBeLocked: []
@@ -16108,7 +16146,7 @@ MonoBehaviour:
   skillName: Dash
   skillDescription: You can dash to avoid attacks
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked: []
   shouldBeLocked: []
   lockedSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
@@ -16862,7 +16900,7 @@ MonoBehaviour:
 
     Sucessful parry will summone mirage image that attacks enemies'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 2000259091}
   shouldBeLocked: []
@@ -17602,10 +17640,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 717923305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.7645, y: -320.52}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798995489
 MonoBehaviour:
@@ -17770,14 +17808,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 10
-  swordType: 1
+  swordType: 0
   bounceUnlockButton: {fileID: 589964403}
   bounceAmount: 5
   bounceGravity: 5
   bounceSpeed: 20
   pierceUnlockButton: {fileID: 933013258}
   pierceAmount: 3
-  pierceGravity: 0
+  pierceGravity: 3
   spinUnlockButton: {fileID: 530785010}
   hitCooldown: 0.1
   maxTravelDistance: 7
@@ -18687,6 +18725,8 @@ MonoBehaviour:
   stashSlotParent: {fileID: 1087291606}
   equipmentSlotParent: {fileID: 446534745}
   statSlotParent: {fileID: 1727568311}
+  loadedItems: []
+  loadedEquipment: []
 --- !u!4 &841836896
 Transform:
   m_ObjectHideFlags: 0
@@ -19226,7 +19266,7 @@ MonoBehaviour:
 
     Your mirage has 30% of your attack'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked: []
   shouldBeLocked: []
   lockedSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
@@ -20783,10 +20823,10 @@ RectTransform:
   - {fileID: 1418629568}
   m_Father: {fileID: 30471186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 37.5, y: -37.5}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &926211588
 CanvasRenderer:
@@ -21124,7 +21164,7 @@ MonoBehaviour:
     Sword now can
     pierce N enemies.'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 1664182628}
   shouldBeLocked:
@@ -21945,7 +21985,7 @@ MonoBehaviour:
   skillDescription: "Leave a crystal behind.\nYou can no longer return to crystal.\nCrystal
     slowly move\u2019s toward  enemies.\nYou can spawn up to 3 crystal ."
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 88589314}
   shouldBeLocked: []
@@ -22305,10 +22345,10 @@ RectTransform:
   - {fileID: 533901346}
   m_Father: {fileID: 846670242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 385, y: -50}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015155462
 MonoBehaviour:
@@ -22731,8 +22771,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018128170}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.77, y: -5.56, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.34044, y: -1.1520076, z: 0.14006346}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22742,7 +22782,7 @@ Transform:
   - {fileID: 690692302}
   - {fileID: 52584597}
   - {fileID: 648278329}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51440302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023426683
 GameObject:
@@ -25111,8 +25151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155282115}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.08, y: 5.65, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32.650444, y: 10.057993, z: 0.14006346}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25122,7 +25162,7 @@ Transform:
   - {fileID: 929390456}
   - {fileID: 1426966392}
   - {fileID: 384163112}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51440302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1161537106 stripped
 RectTransform:
@@ -27732,7 +27772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -27740,15 +27780,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27780,11 +27820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 453.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28412,8 +28452,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297848405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.9, y: 2.35, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 39.470444, y: 6.7579923, z: 0.14006346}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28423,7 +28463,7 @@ Transform:
   - {fileID: 1931823322}
   - {fileID: 844444507}
   - {fileID: 920318524}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51440302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1300181895
 PrefabInstance:
@@ -28451,7 +28491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -28459,15 +28499,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28499,11 +28539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 253.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -29057,10 +29097,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 717923305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.7645, y: -445.52}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1323018818
 MonoBehaviour:
@@ -30968,7 +31008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -30976,15 +31016,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31016,11 +31056,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1353.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -37734,7 +37774,7 @@ MonoBehaviour:
     You
     create mirror image on arival.'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 722151413}
   shouldBeLocked: []
@@ -38904,7 +38944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -38912,15 +38952,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38952,11 +38992,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 753.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -39317,7 +39357,7 @@ MonoBehaviour:
   skillDescription: "Instead of mirage you spawn crystal.\n ( With all it\u2019s
     qualities and modifers)."
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 173702266}
   shouldBeLocked:
@@ -40287,7 +40327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -40295,15 +40335,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40335,11 +40375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 653.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -40947,8 +40987,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611502600}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.76, y: -3.33, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 38.33044, y: 1.0779924, z: 0.14006346}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40958,7 +40998,7 @@ Transform:
   - {fileID: 287690550}
   - {fileID: 325715512}
   - {fileID: 849625748}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51440302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611786349
 GameObject:
@@ -41135,7 +41175,7 @@ MonoBehaviour:
 
     Crystal can explode doing damage and knockback.'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 269764251}
   shouldBeLocked:
@@ -41780,10 +41820,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 717923305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.7645, y: -195.51999}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628779368
 MonoBehaviour:
@@ -42580,10 +42620,10 @@ RectTransform:
   - {fileID: 602056204}
   m_Father: {fileID: 30471186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 112.5, y: -37.5}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1657898143
 CanvasRenderer:
@@ -42659,7 +42699,7 @@ MonoBehaviour:
   skillName: sword Throw
   skillDescription: You can throw your sword to hit enemies
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked: []
   shouldBeLocked: []
   lockedSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
@@ -43123,11 +43163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 411.18
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -43816,7 +43856,7 @@ MonoBehaviour:
 
     You mirage has chance to spawn another mirage.'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 173702266}
   shouldBeLocked:
@@ -43959,10 +43999,10 @@ RectTransform:
   - {fileID: 1091207150}
   m_Father: {fileID: 846670242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1375, y: -50}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721902236
 MonoBehaviour:
@@ -45095,7 +45135,7 @@ MonoBehaviour:
 
     You leave mirage instead of you.'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 269764251}
   shouldBeLocked:
@@ -45388,11 +45428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 136.18
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55724,7 +55764,7 @@ MonoBehaviour:
   skillName: Time Stop
   skillDescription: Hitting enemy with ability , will stop his life clock.
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 1664182628}
   shouldBeLocked: []
@@ -56234,7 +56274,7 @@ MonoBehaviour:
 
 '
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 324565486}
   shouldBeLocked: []
@@ -56398,7 +56438,7 @@ MonoBehaviour:
   skillName: Vulnerability
   skillDescription: Stoped enemy takes more damage from all sources
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 1943763359}
   shouldBeLocked: []
@@ -56788,10 +56828,10 @@ RectTransform:
   - {fileID: 269639678}
   m_Father: {fileID: 846670242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1045, y: -50}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016111382
 MonoBehaviour:
@@ -57088,7 +57128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -57096,15 +57136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57136,11 +57176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1653.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -57253,6 +57293,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040901025}
   m_CullTransparentMesh: 1
+--- !u!1 &2043104589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043104591}
+  - component: {fileID: 2043104590}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2043104590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043104589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1bce2671426e543bf5ff7cb80befb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: data.alexdev
+  encryptData: 0
+--- !u!4 &2043104591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043104589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.429559, y: -4.4079924, z: -0.14006346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2043707658
 GameObject:
   m_ObjectHideFlags: 0
@@ -57387,7 +57473,7 @@ MonoBehaviour:
     You can summon time
     image on dodge.'
   defualtSkillImage: {fileID: -1224798615, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  unclocked: 0
+  unlocked: 0
   shouldBeUnlocked:
   - {fileID: 716450543}
   shouldBeLocked: []
@@ -57501,7 +57587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.x
@@ -57509,15 +57595,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57549,11 +57635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1153.2345
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8059114890213763490, guid: d35c8a8a409c3564b9be5feafc6c4927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -59103,7 +59189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 411.18
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -60937,7 +61023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 11.179993
       objectReference: {fileID: 0}
     - target: {fileID: 151980763813511722, guid: 6c49923fbbd092348804c6a43b5b1786, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -62794,16 +62880,11 @@ SceneRoots:
   - {fileID: 643544115}
   - {fileID: 1083370803}
   - {fileID: 1311858276}
-  - {fileID: 1250974534}
-  - {fileID: 1915678}
-  - {fileID: 684483059}
-  - {fileID: 460816380}
-  - {fileID: 1018128177}
-  - {fileID: 1611502607}
-  - {fileID: 1155282122}
-  - {fileID: 1297848412}
   - {fileID: 533213229}
   - {fileID: 805451355}
-  - {fileID: 1350297983}
+  - {fileID: 2043104591}
   - {fileID: 841836896}
+  - {fileID: 1250974534}
   - {fileID: 924054452}
+  - {fileID: 51440302}
+  - {fileID: 1350297983}

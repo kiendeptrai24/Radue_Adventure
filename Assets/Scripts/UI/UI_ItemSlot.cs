@@ -45,8 +45,8 @@ public class UI_ItemSlot : MonoBehaviour , IPointerDownHandler, IPointerEnterHan
     }
     public void CleanUpSlot()
     {
-        item =null;
-        itemImage.sprite=null;
+        item = null;
+        itemImage.sprite = null;
         itemImage.color = Color.clear;
 
         itemText.text="";

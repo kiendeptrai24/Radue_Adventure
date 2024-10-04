@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, ISaveManager
 {
     public static Inventory instance;
 
@@ -38,7 +39,10 @@ public class Inventory : MonoBehaviour
 
     public float flaskCooldown { get; private set; }
     private float armorCooldown;
-
+    [Header("Data base")]
+    private List<ItemData> itemDataBase;
+    public List<InventoryItem> loadedItems;
+    public List<ItemData_Equipment> loadedEquipment;
 
     private void Awake() {
         if(instance == null)
@@ -62,7 +66,7 @@ public class Inventory : MonoBehaviour
         stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
         statSlot = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
-        AddStartingItem();
+        Invoke(nameof(AddStartingItem),1);
     }
     private void UpdateSlotUI()
     {
@@ -109,6 +113,21 @@ public class Inventory : MonoBehaviour
 
     private void AddStartingItem()
     {
+        foreach (ItemData_Equipment item in loadedEquipment)
+        {
+            EquipItem(item);
+        }
+        if(loadedItems.Count > 0)
+        {
+            foreach (InventoryItem item in loadedItems)
+            {
+                for (int i = 0; i < item.stackSize; i++)
+                {
+                    AddItem(item.data);
+                }
+            }
+            return;
+        }
         for (int i = 0; i < startingItem.Count; i++)
         {
             if(startingItem[i] != null)
@@ -229,7 +248,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-
     public bool CanCraft(ItemData_Equipment _itemToCraft, List<InventoryItem> _requiredMaterial)
     {
         List<InventoryItem> materialsToRemove = new List<InventoryItem>();
@@ -315,5 +333,59 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    public void LoadData(GameData _data)
+    {
+        foreach(KeyValuePair<string, int> pair in _data.inventory)
+        {
+            foreach (var item in GetItemDataBase())
+            {
+                if(item != null && item.itemId == pair.Key)
+                {
+                    InventoryItem itemToLoad = new InventoryItem(item);
+                    itemToLoad.stackSize = pair.Value;
+                    loadedItems.Add(itemToLoad);
+                }
+            }
+        }
+        foreach (string loadedItemId in _data.equipmentId)
+        {
+            foreach (var item in GetItemDataBase())
+            {
+                if(item != null && loadedItemId == item.itemId)
+                {
+                    loadedEquipment.Add(item as ItemData_Equipment);
+                }
+            }
+        }
+    }
 
+    public void SaveGame(ref GameData _data)
+    {
+        _data.inventory.Clear();
+        _data.equipmentId.Clear();
+        foreach(KeyValuePair<ItemData,InventoryItem> pair in inventoryDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+        foreach (KeyValuePair<ItemData, InventoryItem> pair in stashDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId,pair.Value.stackSize);
+        }
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> pair in equipmentDictionary)
+        {
+            _data.equipmentId.Add(pair.Key.itemId);
+        }
+    }
+    private List<ItemData> GetItemDataBase()
+    {
+        itemDataBase = new List<ItemData>();
+        string[] assetNames = AssetDatabase.FindAssets("", new[] {"Assets/Data/Items"});
+        foreach(string SOName in assetNames)
+        {
+            string SOPath = AssetDatabase.GUIDToAssetPath(SOName);
+            ItemData itemData = AssetDatabase.LoadAssetAtPath<ItemData>(SOPath);
+            itemDataBase.Add(itemData);
+        }
+        return itemDataBase;
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler
+public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler, ISaveManager
 {
     private UI ui;
     private Image skillImage;
@@ -16,7 +16,7 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     [SerializeField] private string skillDescription;
     [SerializeField] private Sprite defualtSkillImage;
 
-    public bool unclocked;
+    public bool unlocked;
 
     [SerializeField] private UI_SkillTreeSlot[] shouldBeUnlocked;
     [SerializeField] private UI_SkillTreeSlot[] shouldBeLocked;
@@ -37,6 +37,12 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
         defualtSkillImage = skillImage.sprite;
         skillImage.color = lockColor;
         skillImage.sprite = lockedSkillImage;
+        SkillManager.instance.sword.SetupButton();
+        if(unlocked)
+        {
+            skillImage.color = Color.white;
+            skillImage.sprite = defualtSkillImage;
+        }
     }
 
     private void UnclockSkillSlot() 
@@ -46,7 +52,7 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
         
         for (int i = 0; i < shouldBeUnlocked.Length; i++)
         {
-            if(shouldBeUnlocked[i].unclocked == false)
+            if(shouldBeUnlocked[i].unlocked == false)
             {
                 Debug.Log("Cannot unlock skill");
                 return;
@@ -55,25 +61,48 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
 
         for (int i = 0; i < shouldBeLocked.Length; i++)
         {
-            if(shouldBeLocked[i].unclocked == true)
+            if(shouldBeLocked[i].unlocked == true)
             {
                 Debug.Log("Cannot un lock skill");
                 return;
             }
         }
 
-        unclocked = true;
+        unlocked = true;
         skillImage.color = Color.white;
         skillImage.sprite = defualtSkillImage;
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.ShowToolTip(skillDescription,skillName,skillCost ,unclocked);
+        ui.skillToolTip.ShowToolTip(skillDescription,skillName,skillCost ,unlocked);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillToolTip.HideToolTip();
+    }
+
+    public void LoadData(GameData _data)
+    {
+
+        if(_data.skillTree.TryGetValue(skillName, out bool value))
+        {
+            unlocked = value;
+        }
+    }
+
+    public void SaveGame(ref GameData _data)
+    {
+        if(_data.skillTree.TryGetValue(skillName, out bool value))
+        {
+            _data.skillTree.Remove(skillName);
+            _data.skillTree.Add(skillName, unlocked);
+        }
+        else
+        {
+            _data.skillTree.Add(skillName, unlocked);
+        }
     }
 }

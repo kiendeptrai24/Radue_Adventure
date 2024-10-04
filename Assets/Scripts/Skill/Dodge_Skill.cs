@@ -21,9 +21,14 @@ public class Dodge_Skill : Skill
         unlockDodgeButton.GetComponent<Button>().onClick.AddListener(UnlockDodge);
         unlockMirageDodgeButton.GetComponent<Button>().onClick.AddListener(UnlockMirageDodge);
     }
+    protected override void CheckUnlock()
+    {
+        UnlockDodge();
+        UnlockMirageDodge();
+    }
     private void UnlockDodge()
     {
-        if(unlockDodgeButton.unclocked && !dodgedUnlock)
+        if(unlockDodgeButton.unlocked && !dodgedUnlock)
         {
             player.stats.evasion.AddModifier(evasionAmount);
             Inventory.instance.UpdateStatsUI();

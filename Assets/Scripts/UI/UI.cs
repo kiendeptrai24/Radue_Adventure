@@ -16,7 +16,8 @@ public class UI : MonoBehaviour
     public UI_CraftWindow craftWindow;
     public UI_SkillToolTip skillToolTip;
     private void Start() {
-        SwitchTo(inGameUI);
+        SwitchTo(skillTreeUI);
+        //SwitchTo(inGameUI);
         itemTooltip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);
     }

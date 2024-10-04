@@ -81,7 +81,7 @@ public class Player : Entity
         defaultJumpForce = jumpForce; 
         defaultDashSpeed = dashSpeed;
     }
-
+    
     protected override void Update() 
     {
         base.Update();

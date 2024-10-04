@@ -19,7 +19,7 @@ public class SkeletonGroundedState : EnemyState
     public override void Update() 
     {
         base.Update();
-        if(enemySkeleton.IsPlayerDetected()   || Vector2.Distance(enemySkeleton.transform.position, player.position) < 2)
+        if(enemySkeleton.IsPlayerDetected() || Vector2.Distance(enemySkeleton.transform.position, player.position) < 2)
             StateMachine.ChangeState(enemySkeleton.battleState);
 
     }

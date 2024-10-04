@@ -9,6 +9,7 @@ public class Skill : MonoBehaviour
     protected Player player;
     protected virtual void Start() {
         player=PlayerManager.instance.player;
+        Invoke(nameof(CheckUnlock),1);
     }
     protected virtual void Update()
     {
@@ -23,6 +24,10 @@ public class Skill : MonoBehaviour
             return true;
         }
         return false;
+    }
+    protected virtual void CheckUnlock()
+    {
+
     }
     public virtual void UseSkill()
     {

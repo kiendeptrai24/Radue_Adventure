@@ -69,6 +69,11 @@ public class Sword_Skill : Skill
         GenerateDots();
         SetupGravity();
 
+       
+    }
+
+    public void SetupButton()
+    {
         timeStopUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockTimeStop);
         vulnerableUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockVulnerable);
         swordUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockSword);
@@ -78,20 +83,29 @@ public class Sword_Skill : Skill
     }
 
     #region Unlock region
-    
+
+    protected override void CheckUnlock()
+    {
+        UnlockSword();
+        UnlockBounceSword();
+        UnlockSpinSword();
+        UnlockPierceSword();
+        UnlockTimeStop();
+        UnlockVulnerable();
+    }
     private void UnlockTimeStop()
     {
-        if(timeStopUnlockButton.unclocked)
+        if(timeStopUnlockButton.unlocked)
             timeStopUnlocked = true;
     }
     private void UnlockVulnerable()
     {
-        if(vulnerableUnlockButton.unclocked)
+        if(vulnerableUnlockButton.unlocked)
             vulnerableUnlocked = true;
     }
     private void UnlockSword()
     {
-        if(swordUnlockButton.unclocked)
+        if(swordUnlockButton.unlocked)
         {
             swordType = SwordType.Regular;
             swordUnlocked = true;
@@ -100,17 +114,17 @@ public class Sword_Skill : Skill
 
     private void UnlockBounceSword()
     {
-        if(bounceUnlockButton.unclocked)
+        if(bounceUnlockButton.unlocked)
             swordType = SwordType.Bounce;
     }
     private void UnlockPierceSword()
     {
-        if(pierceUnlockButton.unclocked)
+        if(pierceUnlockButton.unlocked)
             swordType = SwordType.Pierce;
     }
     private void UnlockSpinSword()
     {
-        if(spinUnlockButton.unclocked)
+        if(spinUnlockButton.unlocked)
             swordType = SwordType.Spin;
     }
 
