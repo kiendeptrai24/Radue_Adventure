@@ -1,6 +1,4 @@
-
 using Unity.Mathematics;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class ShockStrike_Controller : MonoBehaviour

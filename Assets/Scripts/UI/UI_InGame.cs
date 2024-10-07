@@ -16,7 +16,11 @@ public class UI_InGame : MonoBehaviour
     [SerializeField] private Image blackHoleImage;
     [SerializeField] private Image flaskImage;
     
+    [Header("Souls info")]
     [SerializeField] private TextMeshProUGUI currentSouls;
+    [SerializeField] private float soulsAmount;
+    [SerializeField] private float increaseRate = 100;
+
 
     private SkillManager skills;
     void Start()
@@ -29,18 +33,18 @@ public class UI_InGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentSouls.text = PlayerManager.instance.GetCurrency().ToString("#,#") + "$" ;
-        if(Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked)
+        UpdateSoulUI();
+        if (Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked)
             SetCooldownOf(dashImage);
-        if(Input.GetKeyDown(KeyCode.Q) && skills.parry.parryUnlocked)
+        if (Input.GetKeyDown(KeyCode.Q) && skills.parry.parryUnlocked)
             SetCooldownOf(parryImage);
-        if(Input.GetKeyDown(KeyCode.F) && skills.crystal.crystalUnlocked)
+        if (Input.GetKeyDown(KeyCode.F) && skills.crystal.crystalUnlocked)
             SetCooldownOf(crystalImage);
-        if(Input.GetKeyDown(KeyCode.Mouse1) && skills.sword.swordUnlocked)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && skills.sword.swordUnlocked)
             SetCooldownOf(swordImage);
-        if(Input.GetKeyDown(KeyCode.R) && skills.blackhole.blackholeUnlocked)
+        if (Input.GetKeyDown(KeyCode.R) && skills.blackhole.blackholeUnlocked)
             SetCooldownOf(blackHoleImage);
-        if(Input.GetKeyDown(KeyCode.Alpha1) && Inventory.instance.GetEquipment(EquipmentType.Flask) != null)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && Inventory.instance.GetEquipment(EquipmentType.Flask) != null)
             SetCooldownOf(flaskImage);
         CheckCooldownOf(dashImage, skills.dash.cooldown);
         CheckCooldownOf(parryImage, skills.parry.cooldown);
@@ -49,6 +53,17 @@ public class UI_InGame : MonoBehaviour
         CheckCooldownOf(blackHoleImage, skills.blackhole.cooldown);
         CheckCooldownOf(flaskImage, Inventory.instance.flaskCooldown);
     }
+
+    private void UpdateSoulUI()
+    {
+        if (soulsAmount < PlayerManager.instance.GetCurrency())
+            soulsAmount += Time.deltaTime * increaseRate;
+        else
+            soulsAmount = PlayerManager.instance.GetCurrency();
+
+        currentSouls.text = ((int)soulsAmount).ToString("#,#") + "$";
+    }
+
     private void UpdateHealthUI()
     {
         slider.maxValue = playerStats.GetMaxHealthValue();

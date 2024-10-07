@@ -10,7 +10,7 @@ public enum EquipmentType
     Armor,
     Amulet,
     Flask
-}
+}      
 [CreateAssetMenu(fileName = "New Item Data", menuName = "Data/Equipment")]
 public class ItemData_Equipment : ItemData
 {
