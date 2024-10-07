@@ -64,7 +64,7 @@ public class Inventory : MonoBehaviour, ISaveManager
         stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
         statSlot = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
-        Invoke(nameof(AddStartingItem),1);
+        Invoke(nameof(AddStartingItem),0.1f);
     }
     private void UpdateSlotUI()
     {

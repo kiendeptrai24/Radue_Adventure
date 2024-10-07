@@ -87,4 +87,14 @@ public class UI : MonoBehaviour
         restartButton.SetActive(true);
     }
     public void RestartGameButton() => GameManager.instance.RestartScene();
+    public void ExitAndSave()
+    {
+        StartCoroutine(nameof(Exit));
+    }   
+    private IEnumerator Exit()
+    {
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(1.3f);
+        GameManager.instance.ExitAndSave();
+    } 
 }
