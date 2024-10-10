@@ -44,6 +44,9 @@ public class Blackhole_Skill : Skill
         GameObject newBlackHole = Instantiate(blackHolePrefab,player.transform.position,Quaternion.identity);
         currentBlackHole= newBlackHole.GetComponent<Blackhole_Skill_Controller>();
         currentBlackHole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed,amountOfAttacks, cloneCooldown, blackholeDuration);
+        AudioManger.instance.PlayerSFX(3,null);
+        AudioManger.instance.PlayerSFX(6,null);
+
     }
     public bool SkillCompleted()
     {

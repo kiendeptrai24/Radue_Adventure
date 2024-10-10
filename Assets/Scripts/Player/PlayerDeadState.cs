@@ -14,6 +14,8 @@ public class PlayerDeadState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        AudioManger.instance.PlayerSFX(11,null);
+
         GameObject.Find("UI").GetComponent<UI>().SwitchOnEndScreen();
     }
     public override void Update()

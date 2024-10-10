@@ -15,6 +15,7 @@ public class GameData
     public float lostCurrencyX;
     public float lostCurrencyY;
     public int lostCurrencyAmount;
+    public SerializableDictionary<string, float> volumeSetting;
     public GameData()
     {
         
@@ -27,5 +28,6 @@ public class GameData
         this.lostCurrencyX = 0;
         this.lostCurrencyY = 0;
         this.lostCurrencyAmount = 0;
+        this.volumeSetting = new SerializableDictionary<string,float>();
     }
 }

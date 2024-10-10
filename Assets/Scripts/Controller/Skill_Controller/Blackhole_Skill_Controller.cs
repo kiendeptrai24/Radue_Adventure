@@ -52,8 +52,8 @@ public class Blackhole_Skill_Controller : MonoBehaviour
 
         if(blackholeTimer<0)
         {
-            blackholeTimer =Mathf.Infinity;
-            if(targets.Count>0)
+            blackholeTimer = Mathf.Infinity;
+            if(targets.Count > 0)
                 ReleaseCloneAttack();
             else
                 FinishBlackHoleAbility();
@@ -116,7 +116,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     {
         //new script myself
         if(Input.GetKeyDown(KeyCode.R))
-            Invoke("FinishBlackHoleAbility",1f);
+            Invoke(nameof(FinishBlackHoleAbility),1f);
             
         if (cloneAttackTimer < 0 && cloneAttackReleased && amountOfAttacks > 0)
         {

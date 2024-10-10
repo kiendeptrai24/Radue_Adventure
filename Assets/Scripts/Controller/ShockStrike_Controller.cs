@@ -28,6 +28,7 @@ public class ShockStrike_Controller : MonoBehaviour
         transform.right = transform.position - targetStats.transform.position;
         if(Vector2.Distance(transform.position,targetStats.transform.position) < .1f)
         {
+            AudioManger.instance.PlayerSFX(29,null);
             anim.transform.localPosition = new Vector3(0,.5f);
             anim.transform.localRotation = Quaternion.identity;
 

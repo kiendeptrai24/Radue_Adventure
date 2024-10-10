@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -269,10 +270,13 @@ public class Inventory : MonoBehaviour, ISaveManager
                 return false;
             }
         }
-
-        for (int i = 0; i < materialsToRemove.Count; i++)
+        for (int i = 0; i < _requiredMaterial.Count; i++)
         {
-            RemoveItem(materialsToRemove[i].data);
+            for (int j = 0; j < _requiredMaterial[i].stackSize; j++)
+            {
+                RemoveItem(materialsToRemove[i].data);       
+            }
+
         }
 
         AddItem(_itemToCraft);

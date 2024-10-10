@@ -126,7 +126,7 @@ public class ItemData_Equipment : ItemData
 
         AddItemDescription(fireDamage, "FireDamage");
         AddItemDescription(iceDamage, "IceDamage");
-        AddItemDescription(iceDamage, "LightingDamage");
+        AddItemDescription(lightingDamage, "LightingDamage");
 
 
         if(descriptionLength < 5)
@@ -137,8 +137,11 @@ public class ItemData_Equipment : ItemData
                 sb.Append("");
             }
         }
+
         for (int i = 0; i < itemEffects.Length; i++)
         {
+            if(itemEffects[i] == null)
+                Debug.Log(this.name);
             if(itemEffects[i].effectDescription.Length >0)
             {
                 sb.AppendLine();

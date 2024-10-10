@@ -15,12 +15,12 @@ MonoBehaviour:
   itemType: 1
   itemName: Rogue's jacet
   itemIcon: {fileID: 957708663, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: c1b1e02afd6ae094383975ebe80841b5
   dropChance: 0
   equipmentType: 1
   itemCooldown: 0
   itemEffects:
   - {fileID: 11400000, guid: 4c906dc85f9fab34798a393c39de5327, type: 2}
-  itemEffectDescription: 'Unique: Increase evasion on each taken it'
   strength: 0
   agility: 5
   intelligence: 0
@@ -35,4 +35,8 @@ MonoBehaviour:
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0
-  craftingMaterial: []
+  craftingMaterial:
+  - data: {fileID: 11400000, guid: 75123820bcbb1ad46872e08a2a738665, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 2e38aadb5d11c88458ec8c1f7096bf34, type: 2}
+    stackSize: 3

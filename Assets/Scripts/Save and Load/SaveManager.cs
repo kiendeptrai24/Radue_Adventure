@@ -51,7 +51,6 @@ public class SaveManager : MonoBehaviour
         {
             saveManager.LoadData(gameData);
         }
-        Debug.Log("loaded currency " + gameData.currency);
     }
     
     public void SaveGame()
@@ -61,7 +60,6 @@ public class SaveManager : MonoBehaviour
             saveManager.SaveGame(ref gameData);
         }
         dataHandler.Save(gameData);
-        Debug.Log("Save currency " + gameData.currency);
     }
     private void OnApplicationQuit() 
     {

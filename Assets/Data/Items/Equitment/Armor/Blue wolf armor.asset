@@ -15,6 +15,7 @@ MonoBehaviour:
   itemType: 1
   itemName: Blue wolf armor
   itemIcon: {fileID: 288293509, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: cc400c3736f500c4a9cd12bfdd134e8e
   dropChance: 0
   equipmentType: 1
   itemCooldown: 5
@@ -34,4 +35,8 @@ MonoBehaviour:
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0
-  craftingMaterial: []
+  craftingMaterial:
+  - data: {fileID: 11400000, guid: 75123820bcbb1ad46872e08a2a738665, type: 2}
+    stackSize: 2
+  - data: {fileID: 11400000, guid: 2e38aadb5d11c88458ec8c1f7096bf34, type: 2}
+    stackSize: 1

@@ -17,6 +17,7 @@ public class IceAndFire_Effect : Item_Effect
 
         if(thirdAttack)
         {
+            AudioManger.instance.PlayerSFX(17,null);
             GameObject newIceAndFire = Instantiate(iceAndFirePrefab,_respawnPosition.position, player.transform.rotation);
             newIceAndFire.GetComponent<Rigidbody2D>().velocity = new Vector2(newVelocity.x * player.facingDir, newVelocity.y);
             Destroy(newIceAndFire,2);

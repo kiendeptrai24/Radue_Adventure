@@ -9,6 +9,7 @@ public class ThunderStrike_Effect : Item_Effect
     [SerializeField] private GameObject thunderStrikePrefab;
     public override void ExecuteEffect(Transform _enemyPosition)
     {
+
         GameObject newThunderStrike = Instantiate(thunderStrikePrefab, _enemyPosition.position, Quaternion.identity);
 
         Destroy(newThunderStrike,1f);

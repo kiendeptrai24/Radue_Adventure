@@ -5,7 +5,7 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public float cooldown;
-    protected float cooldownTimer;
+    public float cooldownTimer;
     protected Player player;
     protected virtual void Start() {
         player=PlayerManager.instance.player;
@@ -31,6 +31,7 @@ public class Skill : MonoBehaviour
     }
     public virtual void UseSkill()
     {
+        
         //do some skill specific things
     }
     protected virtual Transform FindClosestEnnemy(Transform _checkTranform)

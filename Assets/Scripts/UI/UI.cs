@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class UI : MonoBehaviour, ISaveManager
 {
     [Header("End Screen")]
     [SerializeField] private GameObject endText;
@@ -20,6 +20,8 @@ public class UI : MonoBehaviour
     public UI_StatToolTip statToolTip;
     public UI_CraftWindow craftWindow;
     public UI_SkillToolTip skillToolTip;
+
+    [SerializeField] private UI_VolumeSlide[] volumeSetting;
     private void Start() {
         
         SwitchTo(inGameUI);
@@ -48,7 +50,10 @@ public class UI : MonoBehaviour
         }
 
         if(_menu != null)
+        {
+            AudioManger.instance.PlayerSFX(7,null);
             _menu.SetActive(true);
+        }
 
     }
     public void SwitchWithKeyTo(GameObject _menu)
@@ -96,5 +101,27 @@ public class UI : MonoBehaviour
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(1.3f);
         GameManager.instance.ExitAndSave();
-    } 
+    }
+
+    public void LoadData(GameData _data)
+    {
+        foreach (KeyValuePair<string, float> pair in _data.volumeSetting)
+        {
+            foreach (UI_VolumeSlide item in volumeSetting)
+            {
+                if(item.parameter == pair.Key)
+                    item.LoadSlider(pair.Value);
+            }
+        }
+    }
+
+    public void SaveGame(ref GameData _data)
+    {
+        _data.volumeSetting.Clear();
+
+        foreach (UI_VolumeSlide item in volumeSetting)
+        {
+            _data.volumeSetting.Add(item.parameter,item.slider.value);
+        }
+    }
 }
