@@ -27,8 +27,7 @@ public class PlayerCounterAttackState : PlayerState
                 {
                     stateTimer = 10;//any value bigger 1
                     player.anim.SetBool("SuccessfullCounterAttack",true);
-
-                    player.skill.parry.UseSkill(); //going to use to restore health on parry
+                    player.skill.parry.CanUseSkill(); //going to use to restore health on parry
 
                     if(canCreateClone)
                     {

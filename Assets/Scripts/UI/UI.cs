@@ -29,6 +29,8 @@ public class UI : MonoBehaviour, ISaveManager
         statToolTip.gameObject.SetActive(false);
     }
     private void Update() {
+        if(PlayerManager.instance.player.stats.isDead)
+            return;
         if(Input.GetKeyDown(KeyCode.C))
             SwitchWithKeyTo(characterUI);
         if(Input.GetKeyDown(KeyCode.B))
@@ -53,6 +55,14 @@ public class UI : MonoBehaviour, ISaveManager
         {
             AudioManger.instance.PlayerSFX(7,null);
             _menu.SetActive(true);
+        }
+        if(GameManager.instance != null)
+        {
+            if(_menu == inGameUI)
+                GameManager.instance.PauseGame(false);
+            else
+                GameManager.instance.PauseGame(true);
+
         }
 
     }
@@ -98,6 +108,7 @@ public class UI : MonoBehaviour, ISaveManager
     }   
     private IEnumerator Exit()
     {
+        Debug.Log("dead");
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(1.3f);
         GameManager.instance.ExitAndSave();

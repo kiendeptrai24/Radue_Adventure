@@ -20,9 +20,10 @@ public class Skill : MonoBehaviour
         if(cooldownTimer < 0)
         {
             UseSkill();
-            cooldownTimer=cooldown;
+            cooldownTimer = cooldown;
             return true;
         }
+        player.fx.CreatePupUpText("Cooldown");
         return false;
     }
     protected virtual void CheckUnlock()

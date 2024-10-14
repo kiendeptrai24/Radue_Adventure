@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 public enum StatType
@@ -68,6 +69,7 @@ public class CharacterStats : MonoBehaviour
 
     public System.Action onHealthChanged;
     public bool isDead {get; private set;}
+    public bool invincible {get; private set;}
     public bool isVulnerable {get; private set;}
     protected virtual void Start()
     {
@@ -121,14 +123,17 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void DoDamage(CharacterStats _targetStats)
     {
+        bool critialStrike = false;
         if (TargetCanAvoidAttack(_targetStats))
             return;
+        _targetStats.GetComponent<Entity>().SetupKnockbackDir(transform);
         int totalDamage = damage.GetValue() + strength.GetValue();
         if(CanCrit())
         {
             totalDamage = CalculateCriticalDammage(totalDamage);
+            critialStrike = true;
         }
-
+        fx.CreateHitFX(_targetStats.transform,critialStrike);
 
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
         //call take damage of _targetStat Note (Dont have take damage of this object)
@@ -167,7 +172,7 @@ public class CharacterStats : MonoBehaviour
         //random property(Ignite, chill, Shock) when it equal to
         while (!canApplyIgnite && !canApplyChill && !canApplyShock)
         {
-            if (Random.value < .3f && _fireDamage > 0)
+            if (UnityEngine.Random.value < .3f && _fireDamage > 0)
             {
                 canApplyIgnite = true;
                 _targetStats.ApplyAilment(canApplyIgnite, canApplyChill, canApplyShock);
@@ -288,10 +293,12 @@ public class CharacterStats : MonoBehaviour
     #endregion
     public virtual void TakeDamage(int _damage)
     {
+        if(invincible)
+            return;
         DecreaseHealthBy(_damage);
 
         GetComponent<Entity>().DamageImpact();
-        fx.StartCoroutine("FlashFX");
+        fx.StartCoroutine(fx.FlashFX());
 
         if(currentHealth<=0 && !isDead)
             Die();
@@ -317,6 +324,8 @@ public class CharacterStats : MonoBehaviour
        
         Debug.Log("Damage: " + _damage);
         currentHealth -= _damage;
+        if(_damage > 0)
+            fx.CreatePupUpText(_damage.ToString());
         if(onHealthChanged != null)
             onHealthChanged();
     }
@@ -325,6 +334,12 @@ public class CharacterStats : MonoBehaviour
         isDead =true;
     }
     #region Stat calculations        
+    public void KillEntity()
+    {
+        if(!isDead)
+            Die();
+    }
+    public void MakeInvincible(bool _invivible) => invincible=_invivible;
     protected int CheckTargetArmor(CharacterStats _targetStats, int totalDamage)
     {
         if(_targetStats.isChilled)

@@ -27,7 +27,16 @@ public class PlayerStats : CharacterStats
     protected override void DecreaseHealthBy(int _damage)
     {
         base.DecreaseHealthBy(_damage);
-
+        if(isDead)
+            return;
+        if(_damage > GetMaxHealthValue() * .3f)
+        {
+            player.SetupKnockbackPower(new Vector2(10,5));
+            player.fx.ScreenShake(player.fx.shakeHighDamage);
+            int random = Random.Range(35, 37);
+            AudioManger.instance.PlayerSFX(random,null);
+            Debug.Log("High damage taken");
+        }
         ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
         if(currentArmor != null)
             currentArmor.Effect(player.transform);

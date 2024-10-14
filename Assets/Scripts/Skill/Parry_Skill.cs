@@ -23,16 +23,16 @@ public class Parry_Skill : Skill
     [SerializeField] private UI_SkillTreeSlot parryWithMirageUnlockButton;
     public bool parryWithMirageUnlocked { get; private set; }
 
-
-
-
+    public override bool CanUseSkill()
+    {
+        return base.CanUseSkill();
+    }
 
     public override void UseSkill()
-    {
-        base.UseSkill();
+    {   
         if(restoreUnlocked)
         {
-            int restoreAmount =Mathf.RoundToInt(player.stats.GetMaxHealthValue() * restorehealPersentage);
+            int restoreAmount = Mathf.RoundToInt(player.stats.GetMaxHealthValue() * restorehealPersentage);
             player.stats.IncreaseHealthBy(restoreAmount);
         }
     }

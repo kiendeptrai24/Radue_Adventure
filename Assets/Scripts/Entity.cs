@@ -9,14 +9,13 @@ public class Entity : MonoBehaviour
     #region Components
     public Animator anim {get; private set;}
     public Rigidbody2D myrb {get; private set;}
-    public EntityFX fx {get; private set;}
     public SpriteRenderer sr {get; private set;}
     public CharacterStats stats {get; private set;}
     public CapsuleCollider2D cd {get; private set;}
     #endregion
 
     [Header("Knockback info")]
-    [SerializeField] protected Vector2 knockbackDirection;
+    [SerializeField] protected Vector2 knockbackPower;
     [SerializeField] protected float knockbackDuration;
     protected bool isKnocked;
 
@@ -36,6 +35,7 @@ public class Entity : MonoBehaviour
     public System.Action onFlipped;
     public int facingDir{get; private set;}=1;
     protected bool facingRight=true;
+    public int knockbackDir{get; private set;}
 
     protected virtual void Awake() 
     {
@@ -46,7 +46,6 @@ public class Entity : MonoBehaviour
         
         sr=GetComponentInChildren<SpriteRenderer>();
         anim=GetComponentInChildren<Animator>();
-        fx=GetComponent<EntityFX>();
         myrb=GetComponent<Rigidbody2D>();
         stats = GetComponent<CharacterStats>();
         cd=GetComponent<CapsuleCollider2D>();
@@ -63,19 +62,33 @@ public class Entity : MonoBehaviour
     {
         anim.speed=1.0f;
     }
+    public virtual void SetupKnockbackDir(Transform _damageDir)
+    {
+        if(_damageDir.position.x > transform.position.x)
+            knockbackDir=-1;
+        else if(_damageDir.position.x < transform.position.x)
+            knockbackDir =1;
+        
+    }
+    protected virtual void SetupZeroKnockbackPower()
+    {
+
+    }
         
     public virtual void DamageImpact() => StartCoroutine("HitKnockback");
     public virtual void Die()
     {
 
     }
+    public void SetupKnockbackPower(Vector2 knockbackpower) => knockbackPower = knockbackpower;
     protected virtual IEnumerator HitKnockback()
     {
 
         isKnocked=true;
-        myrb.velocity = new Vector2(knockbackDirection.x * -facingDir,knockbackDirection.y);
+        myrb.velocity = new Vector2(knockbackPower.x * knockbackDir,knockbackPower.y);
         yield return new WaitForSeconds(knockbackDuration);
         isKnocked = false;
+        SetupZeroKnockbackPower();
     }
 
     #region Velocity      

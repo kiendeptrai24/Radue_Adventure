@@ -37,7 +37,8 @@ public class ItemObject : MonoBehaviour
     {
         if(!Inventory.instance.CanAddItem() && itemData.itemType == ItemType.Equipment)
         {
-            rb.velocity = new Vector2(0,5); 
+            rb.velocity = new Vector2(0,5);
+            PlayerManager.instance.player.fx.CreatePupUpText("Inventory is full"); 
             return;
         }
         AudioManger.instance.PlayerSFX(18,transform);    

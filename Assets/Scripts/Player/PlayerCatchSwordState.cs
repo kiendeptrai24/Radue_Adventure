@@ -11,6 +11,8 @@ public class PlayerCatchSwordState : PlayerState
     {
         base.Enter();
         AudioManger.instance.PlayerSFX(28,null);
+        player.fx.PlayDustFX(); 
+        player.fx.ScreenShake(player.fx.swordImpactShake);
 
         sword =player.sword.transform;
         if(player.transform.position.x < sword.position.x && player.facingDir!=1)
