@@ -1,8 +1,5 @@
 using UnityEngine;
 
-
-
-
 [CreateAssetMenu(fileName = "Buff effect", menuName = "Data/Item effect/Buff effect")]
 public class Buff_Effect : Item_Effect
 {

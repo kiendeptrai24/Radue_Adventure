@@ -30,6 +30,11 @@ public class PlayerManager : MonoBehaviour, ISaveManager
 
     public void LoadData(GameData _data)
     {
+        if(_data.currency == 0)
+        {
+            currency = 100000;
+            return;
+        }
         this.currency = _data.currency;
     }
 

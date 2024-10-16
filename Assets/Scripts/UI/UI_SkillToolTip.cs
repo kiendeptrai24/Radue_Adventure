@@ -11,17 +11,15 @@ public class UI_SkillToolTip : UI_ToolTip
     [SerializeField] private float defaultNameFontSize;
 
 
-    public void ShowToolTip(string _skillDescription,string _skillName,int _price, bool _lock)
+    public void ShowToolTip(string _skillDescription,string _skillName,int _price)
     {
-        if(_lock)
-        {
             skillName.text =_skillName;
             skillDescription.text = _skillDescription;
             skillCost.text = "Cost: " + _price +"$";
             AdjustPosition();
             AdjustFontSize(skillName);
             gameObject.SetActive(true);
-        }
+        
         
     }
     public void HideToolTip()

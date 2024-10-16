@@ -35,11 +35,15 @@ public class CloneSkill : Skill
     {
         base.Start();
 
+
+
+    }
+    protected override void AddButtonSkillTree()
+    {
         cloneAttackUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCloneAttack);
         aggresiveCloneUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockAggresiveClone);
         multipleUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockMultiClone);
         crystalInsteadUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCrystalInstead);
-
     }
 
 

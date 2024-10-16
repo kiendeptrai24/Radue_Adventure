@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1925143655ca945869d192bf0183b7, type: 3}
   m_Name: Fire buff
   m_EditorClassIdentifier: 
+  effectDescription: buff 15 magic fire for 5 sec.
   buffType: 11
   buffAmount: 15
   buffDuration: 5

@@ -23,8 +23,8 @@ public class Blackhole_Skill : Skill
 
     protected override void Start() {
         base.Start();
-        blackHoleUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockBlackHole);
     }
+
     private void UnlockBlackHole()
     {
         if(blackHoleUnlockButton.unlocked)
@@ -33,6 +33,10 @@ public class Blackhole_Skill : Skill
     protected override void Update()
     {
         base.Update();
+    }
+    protected override void AddButtonSkillTree()
+    {
+        blackHoleUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockBlackHole);
     }
     public override bool CanUseSkill()
     {

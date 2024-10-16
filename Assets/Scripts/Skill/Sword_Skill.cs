@@ -71,8 +71,7 @@ public class Sword_Skill : Skill
 
        
     }
-
-    public void SetupButton()
+    protected override void AddButtonSkillTree()
     {
         timeStopUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockTimeStop);
         vulnerableUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockVulnerable);
@@ -80,7 +79,9 @@ public class Sword_Skill : Skill
         bounceUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockBounceSword);
         pierceUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockPierceSword);
         spinUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockSpinSword);
-    }
+    }  
+
+
 
     #region Unlock region
 

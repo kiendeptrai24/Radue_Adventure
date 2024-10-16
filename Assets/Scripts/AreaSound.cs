@@ -7,15 +7,20 @@ public class AreaSound : MonoBehaviour
     [SerializeField] private int areaSoundIndex;
 
     private void OnTriggerEnter2D(Collider2D other) {
+        
         if(other.GetComponent<Player>())
         {
             AudioManger.instance.PlayerSFX(areaSoundIndex,null);
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
-         if(other.GetComponent<Player>())
+
+        if(AudioManger.instance == null)
+            return;
+        if(other.GetComponent<Player>())
         {
             AudioManger.instance.StopSFXWithTime(areaSoundIndex);
         }
     }
+
 }

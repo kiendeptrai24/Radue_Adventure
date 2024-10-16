@@ -22,8 +22,10 @@ public class UI : MonoBehaviour, ISaveManager
     public UI_SkillToolTip skillToolTip;
 
     [SerializeField] private UI_VolumeSlide[] volumeSetting;
+    private bool exit;
     private void Start() {
         
+        SwitchTo(skillTreeUI);
         SwitchTo(inGameUI);
         itemTooltip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);
@@ -31,6 +33,12 @@ public class UI : MonoBehaviour, ISaveManager
     private void Update() {
         if(PlayerManager.instance.player.stats.isDead)
             return;
+        if(exit)
+        {
+            GameManager.instance.PauseGame(false);
+            return;
+        }
+
         if(Input.GetKeyDown(KeyCode.C))
             SwitchWithKeyTo(characterUI);
         if(Input.GetKeyDown(KeyCode.B))
@@ -56,8 +64,10 @@ public class UI : MonoBehaviour, ISaveManager
             AudioManger.instance.PlayerSFX(7,null);
             _menu.SetActive(true);
         }
+        
         if(GameManager.instance != null)
         {
+
             if(_menu == inGameUI)
                 GameManager.instance.PauseGame(false);
             else
@@ -108,7 +118,7 @@ public class UI : MonoBehaviour, ISaveManager
     }   
     private IEnumerator Exit()
     {
-        Debug.Log("dead");
+        exit=true;
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(1.3f);
         GameManager.instance.ExitAndSave();

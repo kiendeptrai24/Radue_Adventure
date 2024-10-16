@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +12,14 @@ public class UI_MainMenu : MonoBehaviour
     
 
     private void Start() {
-        
+        AudioManger.instance.PlayBGM(Random.Range(0,6));
         Invoke(nameof(SetContinueButton),0.1f);
         
+    }
+    private void Update() {
+        if(AudioManger.instance.BGMisplaying() == false)
+            AudioManger.instance.PlayBGM(Random.Range(0,6));
+
     }
     private void SetContinueButton()
     {
@@ -45,4 +51,5 @@ public class UI_MainMenu : MonoBehaviour
         yield return new WaitForSeconds(_delay);
         SceneManager.LoadScene(sceneName);
     }
+    
 }

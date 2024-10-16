@@ -40,10 +40,14 @@ public class Parry_Skill : Skill
     protected override void Start()
     {
         base.Start();
+        
+    }
+    protected override void AddButtonSkillTree()
+    {
         parryUnlockbutton.GetComponent<Button>().onClick.AddListener(UnlockParry);
         restoreUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParryRetore);
         parryWithMirageUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParryWithMirage);
-    }
+    }  
     protected override void CheckUnlock()
     {
         UnlockParry();

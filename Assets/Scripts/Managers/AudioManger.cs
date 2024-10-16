@@ -84,4 +84,13 @@ public class AudioManger : MonoBehaviour
         }
     }
     public void AllowSFX() => canPlaySFX= true;
+    public bool BGMisplaying()
+    {
+        foreach (var audio in bgm)
+        {
+            if(audio.isPlaying)
+                return true;
+        }
+        return false;
+    }
 }

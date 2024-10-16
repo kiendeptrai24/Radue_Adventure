@@ -23,22 +23,36 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     [SerializeField] private Sprite lockedSkillImage;
     [SerializeField] private Color lockColor;
 
+
     private void OnValidate() 
     {
         gameObject.name ="skillTreeSlot_UI - " + skillName;
+        AddListener();
     }
     private void Awake() {
+        GetComponent<Button>().onClick.RemoveAllListeners();
+        AddListener();
+    }
+    public void AddListener()
+    {
         GetComponent<Button>().onClick.AddListener(() => UnclockSkillSlot());
     }
 
-    private void Start() {
+    private void Start()
+    {
         ui = GetComponentInParent<UI>();
         skillImage = GetComponent<Image>();
         defualtSkillImage = skillImage.sprite;
         skillImage.color = lockColor;
         skillImage.sprite = lockedSkillImage;
-        SkillManager.instance.sword.SetupButton();
-        if(unlocked)
+        Invoke(nameof(SetupInfo),.01f);
+    }
+
+    private void SetupInfo()
+    {
+        Debug.Log(skillName);
+
+        if (unlocked)
         {
             skillImage.color = Color.white;
             skillImage.sprite = defualtSkillImage;
@@ -76,7 +90,7 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.ShowToolTip(skillDescription,skillName,skillCost ,unlocked);
+        ui.skillToolTip.ShowToolTip(skillDescription,skillName,skillCost);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -86,7 +100,6 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
 
     public void LoadData(GameData _data)
     {
-
         if(_data.skillTree.TryGetValue(skillName, out bool value))
         {
             unlocked = value;

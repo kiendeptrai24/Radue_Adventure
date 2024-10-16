@@ -1,7 +1,8 @@
 
 using System.Collections.Generic;
-using Unity.VisualScripting;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class Inventory : MonoBehaviour, ISaveManager
@@ -39,7 +40,7 @@ public class Inventory : MonoBehaviour, ISaveManager
     public float flaskCooldown { get; private set; }
     private float armorCooldown;
     [Header("Data base")]
-    private List<ItemData> itemDataBase;
+    public List<ItemData> itemDataBase;
     public List<InventoryItem> loadedItems;
     public List<ItemData_Equipment> loadedEquipment;
 
@@ -339,7 +340,7 @@ public class Inventory : MonoBehaviour, ISaveManager
     {
         foreach(KeyValuePair<string, int> pair in _data.inventory)
         {
-            foreach (var item in GetItemDataBase())
+            foreach (var item in itemDataBase)
             {
                 if(item != null && item.itemId == pair.Key)
                 {
@@ -351,7 +352,7 @@ public class Inventory : MonoBehaviour, ISaveManager
         }
         foreach (string loadedItemId in _data.equipmentId)
         {
-            foreach (var item in GetItemDataBase())
+            foreach (var item in itemDataBase)
             {
                 if(item != null && loadedItemId == item.itemId)
                 {
@@ -378,6 +379,9 @@ public class Inventory : MonoBehaviour, ISaveManager
             _data.equipmentId.Add(pair.Key.itemId);
         }
     }
+#if UNITY_EDITOR
+    [ContextMenu("Fill up item data base")]
+    private void FilUPItemDataBase() => itemDataBase = new List<ItemData>(GetItemDataBase());
     private List<ItemData> GetItemDataBase()
     {
         itemDataBase = new List<ItemData>();
@@ -390,4 +394,5 @@ public class Inventory : MonoBehaviour, ISaveManager
         }
         return itemDataBase;
     }
+#endif
 }

@@ -33,10 +33,15 @@ public class Crystal_Skill : Skill
     [SerializeField] private float multiStackCooldown;
     [SerializeField] private float useTimeWindow;
     [SerializeField] private List<GameObject> crystalLeft =new List<GameObject>();
+    private bool oneTime;
 
     protected override void Start()
     {
         base.Start();
+        
+    }
+    protected override void AddButtonSkillTree()
+    {
         unlockCrystalButton.GetComponent<Button>().onClick.AddListener(UnlockCrystal);
         unlockCloneInsteadButton.GetComponent<Button>().onClick.AddListener(UnlockCrystalMirage);
         unlockExplosiveButton.GetComponent<Button>().onClick.AddListener(UnlockExplosiveCrystal);
@@ -55,11 +60,14 @@ public class Crystal_Skill : Skill
     private void UnlockCrystal()
     {
         if(unlockCrystalButton.unlocked)
+        {
             crystalUnlocked = true;
+            canClickSkill =true;
+        }
     }
     private void UnlockCrystalMirage()
     {
-        if(unlockCloneInsteadButton)
+        if(unlockCloneInsteadButton.unlocked)
             cloneInsteadOfCrystal =true;
     }
     private void UnlockExplosiveCrystal()
@@ -69,12 +77,12 @@ public class Crystal_Skill : Skill
     }
     private void UnlockMovingCrystal()
     {
-        if(unlockMovingCrystalButton)
+        if(unlockMovingCrystalButton.unlocked)
             canMoveToEnemy=true;
     }
     private void UnlockMultiStack()
     {
-        if(unlockMultiStackButton)
+        if(unlockMultiStackButton.unlocked)
             canUseMultiStack = true;
     }
     #endregion
@@ -92,9 +100,13 @@ public class Crystal_Skill : Skill
         {
             if(canMoveToEnemy)
                 return;
-            Vector2 playerPos = player.transform.position;
-            player.transform.position = currentCrystal.transform.position;
-            currentCrystal.transform.position = playerPos;  
+            if(oneTime)
+            {
+                Vector2 playerPos = player.transform.position;
+                player.transform.position = currentCrystal.transform.position;
+                currentCrystal.transform.position = playerPos;  
+                oneTime = false;
+            }
             //new
             if(cloneInsteadOfCrystal)
             {
@@ -114,6 +126,7 @@ public class Crystal_Skill : Skill
         currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
         Crystal_Skill_controller currentCrystalScript = currentCrystal.GetComponent<Crystal_Skill_controller>();
         currentCrystalScript.SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnnemy(currentCrystalScript.transform),player);
+        oneTime = true;
 
     }
     //new

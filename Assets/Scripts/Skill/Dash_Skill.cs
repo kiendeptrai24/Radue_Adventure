@@ -24,10 +24,14 @@ public class Dash_Skill : Skill
     protected override void Start()
     {
         base.Start();
+        
+    }
+    protected override void AddButtonSkillTree()
+    {
         dashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockDash);
         cloneOnDashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOnDash);
         cloneOnArrivalUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOnArrival);
-    }
+    }   
     protected override void CheckUnlock()
     {
         UnlockDash();

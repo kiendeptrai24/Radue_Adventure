@@ -16,7 +16,7 @@ public class EnemyStats : CharacterStats
 
     protected override void Start()
     {
-        soulsDropAmount.SetDefaultValue(100);
+        soulsDropAmount.SetDefaultValue(5000);
         ApplyLevelModifier();
         base.Start();
         enemy = GetComponent<Enemy>();
