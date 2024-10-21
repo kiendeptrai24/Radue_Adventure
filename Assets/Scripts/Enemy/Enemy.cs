@@ -1,8 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.UIElements;
 
+
+
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(EnemyStats))]
+[RequireComponent(typeof(EntityFX))]
+[RequireComponent(typeof(ItemDrop))]
 public class Enemy : Entity
 {
     [SerializeField] protected LayerMask whatIsPlayer;
@@ -20,6 +27,7 @@ public class Enemy : Entity
     public float defaultMoveSpeed;
 
     [Header("Attack info")]
+    public float agroDistance = 2;
     public float attackDistance;
     public float attackCooldown;
     public float minAttackCooldown;
@@ -30,13 +38,29 @@ public class Enemy : Entity
     public EnemyStateMachine stateMachine{ get; private set; }
     public string lastAnimBoolName { get; private set; }
     public EntityFX fx {get; private set;}
+    protected override void Reset()
+    {
+        base.Reset();
+        stunDuration = 1;
+        stunDirection = new Vector2(10,12);
+        defaultMoveSpeed=moveSpeed;
+        moveSpeed = 1.2f;
+        idleTime = 2;
+        battleTime = 7;
+        agroDistance = 2;
+        attackDistance = 2;
+        minAttackCooldown=1;
+        maxAttackCooldown=2;
+        whatIsPlayer =LayerMask.GetMask("Player");
+         
 
+    }
 
     protected override void Awake() {
         base.Awake();
         stateMachine = new EnemyStateMachine();
 
-        defaultMoveSpeed=moveSpeed;
+
 
     }
     protected override void Start()
@@ -77,6 +101,9 @@ public class Enemy : Entity
             moveSpeed =defaultMoveSpeed;
             anim.speed = 1;
         }
+    }
+    public virtual void AnimationSpecialAttackTrigger()
+    {
     }
     public virtual void FreezeTimefor(float _duration) => StartCoroutine(FreezeTimerForCoroutine( _duration));
     protected virtual IEnumerator FreezeTimerForCoroutine(float _seconds)

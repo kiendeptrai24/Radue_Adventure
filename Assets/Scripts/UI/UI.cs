@@ -24,7 +24,6 @@ public class UI : MonoBehaviour, ISaveManager
     [SerializeField] private UI_VolumeSlide[] volumeSetting;
     private bool exit;
     private void Start() {
-        
         SwitchTo(skillTreeUI);
         SwitchTo(inGameUI);
         itemTooltip.gameObject.SetActive(false);
@@ -54,7 +53,7 @@ public class UI : MonoBehaviour, ISaveManager
             return;
         for (int i = 0; i < transform.childCount; i++)
         {
-            bool fadeScreen = transform.GetChild(i).GetComponent<UI_FadeScreen>() != null; // we need this to keep fade screen gameObject active
+            bool fadeScreen = transform.GetChild(i).GetComponentInChildren<UI_FadeScreen>() != null; // we need this to keep fade screen gameObject active
             if(fadeScreen == false)
                 transform.GetChild(i).gameObject.SetActive(false);
         }

@@ -33,6 +33,7 @@ public class SaveManager : MonoBehaviour
         saveManagers = FindAllSaveManagers();
         LoadGame();
     }
+
     public void NewGame()
     {
         gameData = new GameData();

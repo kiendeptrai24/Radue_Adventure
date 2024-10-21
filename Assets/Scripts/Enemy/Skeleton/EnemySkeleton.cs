@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySkeleton : Enemy
+public class enemy_Skeleton : Enemy
 {
     #region States
     public SkeletonIdleState idleState { get;private set; }

@@ -22,6 +22,7 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     [SerializeField] private UI_SkillTreeSlot[] shouldBeLocked;
     [SerializeField] private Sprite lockedSkillImage;
     [SerializeField] private Color lockColor;
+    public bool checkLoad;
 
 
     private void OnValidate() 
@@ -39,21 +40,28 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
     }
 
     private void Start()
+    {   
+        if(!ui)
+            SetupComponent();
+    }
+    private void SetupComponent()
     {
         ui = GetComponentInParent<UI>();
         skillImage = GetComponent<Image>();
         defualtSkillImage = skillImage.sprite;
         skillImage.color = lockColor;
         skillImage.sprite = lockedSkillImage;
-        Invoke(nameof(SetupInfo),.01f);
     }
 
     private void SetupInfo()
     {
-        Debug.Log(skillName);
 
         if (unlocked)
         {
+            if(skillImage == null)
+            {
+                SetupComponent();
+            }
             skillImage.color = Color.white;
             skillImage.sprite = defualtSkillImage;
         }
@@ -83,8 +91,7 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
         }
 
         unlocked = true;
-        skillImage.color = Color.white;
-        skillImage.sprite = defualtSkillImage;
+        SetupInfo();
 
     }
 
@@ -103,6 +110,7 @@ public class UI_SkillTreeSlot : MonoBehaviour ,IPointerEnterHandler, IPointerExi
         if(_data.skillTree.TryGetValue(skillName, out bool value))
         {
             unlocked = value;
+            SetupInfo();
         }
     }
 

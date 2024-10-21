@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SkeletonAttackState : EnemyState
 {
-    private EnemySkeleton enemySkeleton;
-    public SkeletonAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,EnemySkeleton _enemySkeleton) : base(_enemyBase, _stateMachine, _animBoolName)
+    private enemy_Skeleton enemy;
+    public SkeletonAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
-        enemySkeleton = _enemySkeleton;
+        enemy = _enemy;
     }
     public override void Enter()
     {
@@ -17,10 +17,10 @@ public class SkeletonAttackState : EnemyState
     public override void Update()
     {
         base.Update();
-        enemySkeleton.ZeroVelocity();
+        enemy.ZeroVelocity();
         if(triggerCalled)
         {
-            StateMachine.ChangeState(enemySkeleton.idleState);
+            StateMachine.ChangeState(enemy.battleState);
         }
             
 
@@ -28,6 +28,6 @@ public class SkeletonAttackState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        enemySkeleton.lastTimeAttacked = Time.time;
+        enemy.lastTimeAttacked = Time.time;
     }
 }

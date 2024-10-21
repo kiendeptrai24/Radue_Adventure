@@ -17,7 +17,7 @@ public class PlayerBlackholeState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        defaultGrabity = player.myrb.gravityScale;
+        defaultGrabity = player.rb.gravityScale;
         skillUsed = false;
         stateTimer = flyTime;
         myrb.gravityScale = 0;
@@ -46,7 +46,7 @@ public class PlayerBlackholeState : PlayerState
     {
         base.Exit();
         player.fx.MakeTransprent(false);
-        player.myrb.gravityScale = defaultGrabity;
+        player.rb.gravityScale = defaultGrabity;
         cc.enabled = true;
 
     }

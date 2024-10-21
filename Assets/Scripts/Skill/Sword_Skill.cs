@@ -55,18 +55,11 @@ public class Sword_Skill : Skill
     private Vector2 finalDir;
 
     [Header("Aim dots")]
-    [SerializeField] private int numberOfDots;
     [SerializeField] private float spaceBeetwenDots;
-    [SerializeField] private GameObject dotsPrefab;
-    [SerializeField] private Transform dotsParent;
-    private GameObject[] dots;
-
-
 
     protected override void Start()
     {
         base.Start();
-        GenerateDots();
         SetupGravity();
 
        
@@ -151,9 +144,9 @@ public class Sword_Skill : Skill
         }
         if(Input.GetKey(KeyCode.Mouse1))
         {
-            for (int i = 0; i < dots.Length; i++)
+            for (int i = 0; i < ObjectPooling.instance.amountOfPool; i++)
             {
-                dots[i].transform.position =  DotsPosision(i * spaceBeetwenDots);
+                ObjectPooling.instance.GetObject(i).transform.position =  DotsPosision(i * spaceBeetwenDots);
             }
         }
     }
@@ -171,7 +164,7 @@ public class Sword_Skill : Skill
         
         newSwordScript.SetupSword(finalDir,swordGravity,player,freezeTimeDuration,returnSpeed);
         player.AssignNewSword(newSword);
-        DotsActive(false);
+        ObjectPooling.instance.DotsActive(false);
         
     }
     #region Aim region
@@ -183,22 +176,7 @@ public class Sword_Skill : Skill
 
         return direction;
     }
-    public void DotsActive(bool _isActive)
-    {
-        for (int i = 0; i < dots.Length; i++)
-        {
-            dots[i].SetActive(_isActive);
-        }
-    }
-    private void GenerateDots()
-    {
-        dots = new GameObject[numberOfDots];
-        for (int i = 0; i < numberOfDots; i++)
-        {
-            dots[i]= Instantiate(dotsPrefab,player.transform.position,Quaternion.identity,dotsParent);
-            dots[i].SetActive(false);
-        }
-    }
+
     private Vector2 DotsPosision(float t)
     {
         Vector2 posision = (Vector2)player.transform.position + new Vector2(AimDirection().normalized.x * launchForce.x, 

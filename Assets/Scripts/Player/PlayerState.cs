@@ -27,7 +27,7 @@ public class PlayerState
     public virtual void Enter()
     {
         player.anim.SetBool(animBoolName,true);
-        myrb=player.myrb;
+        myrb=player.rb;
         cc=player.GetComponent<CapsuleCollider2D>();
         triggerCalled = false;
     }

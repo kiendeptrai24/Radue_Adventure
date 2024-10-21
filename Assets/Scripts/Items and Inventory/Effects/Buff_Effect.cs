@@ -13,6 +13,7 @@ public class Buff_Effect : Item_Effect
         stats = PlayerManager.instance.player.GetComponent<PlayerStats>();
 
         stats.IncreaseStatBy(buffAmount, buffDuration, stats.GetStat(buffType));
+        PlayerManager.instance.player.fx.CreatePupUpText(buffType.ToString()+": +"+buffAmount +" "+buffDuration+"s",Color.green);
     }
 
 

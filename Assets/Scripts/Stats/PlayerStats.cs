@@ -35,7 +35,6 @@ public class PlayerStats : CharacterStats
             player.fx.ScreenShake(player.fx.shakeHighDamage);
             int random = Random.Range(35, 37);
             AudioManger.instance.PlayerSFX(random,null);
-            Debug.Log("High damage taken");
         }
         ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
         if(currentArmor != null)

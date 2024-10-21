@@ -7,7 +7,6 @@ public class Skill : MonoBehaviour
     public float cooldown;
     public float cooldownTimer;
     protected Player player;
-    protected bool canClickSkill;
     protected virtual void Start() {
         player=PlayerManager.instance.player;
         Invoke(nameof(CheckUnlock),1);
@@ -25,12 +24,7 @@ public class Skill : MonoBehaviour
             cooldownTimer = cooldown;
             return true;
         }
-        else if(canClickSkill)
-        {
-            UseSkill();
-            return false;
-        }
-        player.fx.CreatePupUpText("Cooldown");
+        player.fx.CreatePupUpText("Cooldown",Color.gray);
         return false;
     }
     protected virtual void AddButtonSkillTree()

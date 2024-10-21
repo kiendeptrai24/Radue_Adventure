@@ -69,7 +69,7 @@ public class CharacterStats : MonoBehaviour
 
     public System.Action onHealthChanged;
     public bool isDead {get; private set;}
-    public bool invincible {get; private set;}
+    public bool isInvincible {get; private set;}
     public bool isVulnerable {get; private set;}
     protected virtual void Start()
     {
@@ -116,7 +116,6 @@ public class CharacterStats : MonoBehaviour
         _statToModify.AddModifier(_modifier);
 
         yield return new WaitForSeconds(_duration);
-
         _statToModify.RemoveModifier(_modifier);
     }
 
@@ -124,14 +123,20 @@ public class CharacterStats : MonoBehaviour
     public virtual void DoDamage(CharacterStats _targetStats)
     {
         bool critialStrike = false;
-        if (TargetCanAvoidAttack(_targetStats))
+        if(_targetStats.isInvincible)
             return;
+        if (TargetCanAvoidAttack(_targetStats))
+        {
+            _targetStats.fx.CreatePupUpText("Avoided",Color.yellow);
+            return;
+        }
         _targetStats.GetComponent<Entity>().SetupKnockbackDir(transform);
         int totalDamage = damage.GetValue() + strength.GetValue();
         if(CanCrit())
         {
             totalDamage = CalculateCriticalDammage(totalDamage);
             critialStrike = true;
+
         }
         fx.CreateHitFX(_targetStats.transform,critialStrike);
 
@@ -198,7 +203,7 @@ public class CharacterStats : MonoBehaviour
         if (canApplyShock)
             _targetStats.SetupShockStrikeDamage(Mathf.RoundToInt(_lightingDamage * .5f));
         
-        Debug.Log(entity.nameOfChar + ": Thunder Strike Damage: " +_lightingDamage * .1f);
+
         _targetStats.ApplyAilment(canApplyIgnite, canApplyChill, canApplyShock);
     }
 
@@ -293,7 +298,7 @@ public class CharacterStats : MonoBehaviour
     #endregion
     public virtual void TakeDamage(int _damage)
     {
-        if(invincible)
+        if(isInvincible)
             return;
         DecreaseHealthBy(_damage);
 
@@ -307,11 +312,16 @@ public class CharacterStats : MonoBehaviour
     
     public virtual void IncreaseHealthBy(int _amount)
     {
+        if(currentHealth < GetMaxHealthValue())
+            if(currentHealth + _amount >GetMaxHealthValue())
+                PlayerManager.instance.player.fx.CreatePupUpText("Heal: +"+(GetMaxHealthValue()-currentHealth).ToString(),Color.green);
+        else
+            PlayerManager.instance.player.fx.CreatePupUpText("Heal: +"+_amount,Color.green);
         currentHealth += _amount;
-
+        
         if(currentHealth > GetMaxHealthValue())
             currentHealth = GetMaxHealthValue();
-
+        
         if(onHealthChanged != null)
             onHealthChanged();
     }
@@ -322,10 +332,9 @@ public class CharacterStats : MonoBehaviour
             _damage = Mathf.RoundToInt(_damage * 1.1f);
         
        
-        Debug.Log("Damage: " + _damage);
         currentHealth -= _damage;
         if(_damage > 0)
-            fx.CreatePupUpText(_damage.ToString());
+            fx.CreatePupUpText("-"+_damage.ToString(),Color.red);
         if(onHealthChanged != null)
             onHealthChanged();
     }
@@ -339,7 +348,7 @@ public class CharacterStats : MonoBehaviour
         if(!isDead)
             Die();
     }
-    public void MakeInvincible(bool _invivible) => invincible=_invivible;
+    public void MakeInvincible(bool _invivible) => isInvincible=_invivible;
     protected int CheckTargetArmor(CharacterStats _targetStats, int totalDamage)
     {
         if(_targetStats.isChilled)
@@ -369,7 +378,7 @@ public class CharacterStats : MonoBehaviour
     {
         Entity entity = GetEntityFromCharacterStats(_targetStats);
 
-        Debug.Log(entity.nameOfChar + ": ATTACK AVOIDED");
+
         int totalEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
         if (isShocked)
             totalEvasion += 20;

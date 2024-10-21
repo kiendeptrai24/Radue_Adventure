@@ -41,7 +41,7 @@ public class EntityFX : MonoBehaviour
         originalMat = sr.sharedMaterial;
     }
 
-    public void CreatePupUpText(string _text)
+    public void CreatePupUpText(string _text,Color _color)
     {
         float randomX = Random.Range(-1, 1);
         float randomY = Random.Range(1.5f, 3);
@@ -49,6 +49,8 @@ public class EntityFX : MonoBehaviour
         Vector3 positionOffset = new Vector3(randomX,randomY,0);
         GameObject newText = Instantiate(pupUpTextPrefab,transform.position + positionOffset,Quaternion.identity);
         newText.GetComponent<TextMeshPro>().text = _text;
+        newText.GetComponent<TextMeshPro>().color = _color;
+
     }
 
 

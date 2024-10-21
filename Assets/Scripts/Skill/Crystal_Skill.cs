@@ -10,21 +10,26 @@ public class Crystal_Skill : Skill
     [SerializeField] private GameObject crystalPrefab;
     private GameObject currentCrystal;
 
-    [Header("Crystal mirage")]
+    [Header("Crystal")]
     [SerializeField] private UI_SkillTreeSlot unlockCrystalButton;
     public bool crystalUnlocked ;//{get; private set;}
     [Header("Crystal mirage")]
     [SerializeField] private UI_SkillTreeSlot unlockCloneInsteadButton;
     [SerializeField] private bool cloneInsteadOfCrystal;
+    [SerializeField] private int crystalMirageCooldown;
 
     [Header("Explosive crystal")]
     [SerializeField] private UI_SkillTreeSlot unlockExplosiveButton;
     [SerializeField] private bool canExplode;
+    [SerializeField] private int  crystalExplosiveCooldown;
+
 
     [Header("Moving crystal")]
     [SerializeField] private UI_SkillTreeSlot unlockMovingCrystalButton;
     [SerializeField] private bool canMoveToEnemy;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private int crystalMoveCooldown;
+
 
     [Header("Multi Stacking crystal")]
     [SerializeField] private UI_SkillTreeSlot unlockMultiStackButton;
@@ -32,6 +37,8 @@ public class Crystal_Skill : Skill
     [SerializeField] private int amountOfStacks;
     [SerializeField] private float multiStackCooldown;
     [SerializeField] private float useTimeWindow;
+    [SerializeField] private int crystalMultiStackCooldown;
+
     [SerializeField] private List<GameObject> crystalLeft =new List<GameObject>();
     private bool oneTime;
 
@@ -62,28 +69,39 @@ public class Crystal_Skill : Skill
         if(unlockCrystalButton.unlocked)
         {
             crystalUnlocked = true;
-            canClickSkill =true;
         }
     }
     private void UnlockCrystalMirage()
     {
         if(unlockCloneInsteadButton.unlocked)
+        {
             cloneInsteadOfCrystal =true;
+            cooldown = crystalMirageCooldown;
+        }   
     }
     private void UnlockExplosiveCrystal()
     {
         if(unlockExplosiveButton.unlocked)
+        {
             canExplode = true;
+            cooldown = crystalExplosiveCooldown;
+        }
     }
     private void UnlockMovingCrystal()
     {
         if(unlockMovingCrystalButton.unlocked)
+        {
             canMoveToEnemy=true;
+            cooldown = crystalMoveCooldown;
+        }
     }
     private void UnlockMultiStack()
     {
         if(unlockMultiStackButton.unlocked)
+        {
             canUseMultiStack = true;
+            cooldown = crystalMultiStackCooldown;
+        }
     }
     #endregion
     public override void UseSkill()

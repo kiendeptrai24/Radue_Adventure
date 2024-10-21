@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SkeletonGroundedState : EnemyState
 { 
-    protected EnemySkeleton enemySkeleton;
+    protected enemy_Skeleton enemy;
     protected Transform player;
-    public SkeletonGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,EnemySkeleton _enemySkeleton) : base(_enemyBase, _stateMachine, _animBoolName)
+    public SkeletonGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
-        enemySkeleton = _enemySkeleton;
+        enemy = _enemy;
     }
     public override void Enter()
     {
@@ -19,8 +19,8 @@ public class SkeletonGroundedState : EnemyState
     public override void Update() 
     {
         base.Update();
-        if(enemySkeleton.IsPlayerDetected() || Vector2.Distance(enemySkeleton.transform.position, player.position) < 2)
-            StateMachine.ChangeState(enemySkeleton.battleState);
+        if(enemy.IsPlayerDetected() || Vector2.Distance(enemy.transform.position, player.position) < enemy.agroDistance)
+            StateMachine.ChangeState(enemy.battleState);
 
     }
     public override void Exit()

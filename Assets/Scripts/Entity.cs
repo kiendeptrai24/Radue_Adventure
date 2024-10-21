@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
 
     #region Components
     public Animator anim {get; private set;}
-    public Rigidbody2D myrb {get; private set;}
+    public Rigidbody2D rb {get; private set;}
     public SpriteRenderer sr {get; private set;}
     public CharacterStats stats {get; private set;}
     public CapsuleCollider2D cd {get; private set;}
@@ -16,6 +16,7 @@ public class Entity : MonoBehaviour
 
     [Header("Knockback info")]
     [SerializeField] protected Vector2 knockbackPower;
+    [SerializeField] protected Vector2 knockbackOffset;
     [SerializeField] protected float knockbackDuration;
     protected bool isKnocked;
 
@@ -36,7 +37,16 @@ public class Entity : MonoBehaviour
     public int facingDir{get; private set;}=1;
     protected bool facingRight=true;
     public int knockbackDir{get; private set;}
+    protected virtual void Reset() {
+        knockbackPower = new Vector2(7,12);
+        knockbackOffset =  new Vector2(.5f,2);
+        knockbackDuration =.07f;
+        attackCheckRadius =1.2f;
+        groundCheckDistance =1;
+        wallCheckDistance =.8f;
+        whatIsGround =LayerMask.GetMask("Ground");
 
+    }
     protected virtual void Awake() 
     {
         
@@ -46,7 +56,7 @@ public class Entity : MonoBehaviour
         
         sr=GetComponentInChildren<SpriteRenderer>();
         anim=GetComponentInChildren<Animator>();
-        myrb=GetComponent<Rigidbody2D>();
+        rb=GetComponent<Rigidbody2D>();
         stats = GetComponent<CharacterStats>();
         cd=GetComponent<CapsuleCollider2D>();
     }
@@ -85,7 +95,9 @@ public class Entity : MonoBehaviour
     {
 
         isKnocked=true;
-        myrb.velocity = new Vector2(knockbackPower.x * knockbackDir,knockbackPower.y);
+        float xOffset = Random.Range(knockbackOffset.x, knockbackOffset.y);
+        //if(knockbackPower.x >0 || knockbackPower.y >0)//this free stop character
+            rb.velocity = new Vector2((knockbackPower.x *xOffset) * knockbackDir,knockbackPower.y);
         yield return new WaitForSeconds(knockbackDuration);
         isKnocked = false;
         SetupZeroKnockbackPower();
@@ -96,13 +108,13 @@ public class Entity : MonoBehaviour
     {
         if(isKnocked)
             return;
-        myrb.velocity=new Vector2(0,0);
+        rb.velocity=new Vector2(0,0);
     }
     public void SetVelocity(float _xVelocity,float _yVelocity)
     {
         if(isKnocked)
             return;
-        myrb.velocity = new Vector2(_xVelocity,_yVelocity);
+        rb.velocity = new Vector2(_xVelocity,_yVelocity);
         FlipController(_xVelocity);
         
         
@@ -114,8 +126,11 @@ public class Entity : MonoBehaviour
     public virtual bool IsWallDetected() => Physics2D.Raycast(wallCheck.position,Vector2.right * facingDir,wallCheckDistance,whatIsGround); 
     protected virtual void OnDrawGizmos()
     {
+        Gizmos.color = Color.blue;
         Gizmos.DrawLine(groundCheck.position,new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.color = Color.green;
         Gizmos.DrawLine(wallCheck.position,new Vector3(wallCheck.position.x + wallCheckDistance * facingDir,wallCheck.position.y));
+        Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
 
     }
@@ -135,6 +150,12 @@ public class Entity : MonoBehaviour
             Flip();
         else if(_x < 0 && facingRight)
             Flip();
+    }
+    public void SetupDefaultFacingDir(int _direction)
+    {
+        facingDir = _direction;
+        if(facingDir == -1)
+            facingRight = false; 
     }
     #endregion
 

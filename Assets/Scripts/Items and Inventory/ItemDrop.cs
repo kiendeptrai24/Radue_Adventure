@@ -25,7 +25,7 @@ public class ItemDrop : MonoBehaviour
         for (int i = 0; i < possibleItemDrop; i++)
         {
             int ran =Random.Range(0, dropList.Count - 1);
-            
+            Debug.Log("ran"+ ran);
             ItemData randomItem = dropList[ran];
 
             dropList.Remove(randomItem);

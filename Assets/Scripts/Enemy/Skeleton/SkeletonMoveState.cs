@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonMoveState : SkeletonGroundedState
 {
 
-    public SkeletonMoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemySkeleton _enemySkeleton) : base(_enemyBase, _stateMachine, _animBoolName, _enemySkeleton)
+    public SkeletonMoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, enemy_Skeleton _enemySkeleton) : base(_enemyBase, _stateMachine, _animBoolName, _enemySkeleton)
     {
     }
 
@@ -16,11 +16,11 @@ public class SkeletonMoveState : SkeletonGroundedState
     public override void Update() 
     {
         base.Update();
-        enemySkeleton.SetVelocity(enemySkeleton.moveSpeed * enemySkeleton.facingDir,enemySkeleton.myrb.velocity.y);    
-        if(enemySkeleton.IsWallDetected() || !enemySkeleton.IsGroundDetected())
+        enemy.SetVelocity(enemy.moveSpeed * enemy.facingDir,enemy.rb.velocity.y);    
+        if(enemy.IsWallDetected() || !enemy.IsGroundDetected())
         {
-            enemySkeleton.Flip();
-            StateMachine.ChangeState(enemySkeleton.idleState);
+            enemy.Flip();
+            StateMachine.ChangeState(enemy.idleState);
         }
 
 

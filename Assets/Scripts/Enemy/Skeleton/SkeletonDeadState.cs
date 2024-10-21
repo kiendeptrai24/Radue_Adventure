@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class SkeletonDeadState : EnemyState
 {
-    private EnemySkeleton enemySkeleton;
-    public SkeletonDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,EnemySkeleton _enemySkeleton) : base(_enemyBase, _stateMachine, _animBoolName)
+    private enemy_Skeleton enemy;
+    public SkeletonDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
-        enemySkeleton = _enemySkeleton;
+        enemy = _enemy;
     }
     public override void Enter()
     {
         base.Enter();
         
-        enemySkeleton.anim.SetBool(enemySkeleton.lastAnimBoolName, false);
-        enemySkeleton.anim.speed = 0;
-        enemySkeleton.cd.enabled = false;
+        enemy.anim.SetBool(enemy.lastAnimBoolName, false);
+        enemy.anim.speed = 0;
+        enemy.cd.enabled = false;
 
         stateTimer = .15f;
-        myrb.velocity=new Vector2(7,10);
+        rb.velocity=new Vector2(7,10);
     }
     public override void Update()
     {
         base.Update();
         if(stateTimer>0)
-            myrb.velocity = new Vector2(0,10);
+            rb.velocity = new Vector2(0,10);
             
 
     }

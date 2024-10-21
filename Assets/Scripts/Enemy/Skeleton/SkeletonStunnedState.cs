@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class SkeletonStunnedState : EnemyState
 {
-    private EnemySkeleton enemySkeleton;
-    public SkeletonStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,EnemySkeleton _enemySkeleton) : base(_enemyBase, _stateMachine, _animBoolName)
+    private enemy_Skeleton enemy;
+    public SkeletonStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
-        enemySkeleton = _enemySkeleton;
+        enemy = _enemy;
     }
     public override void Enter()
     {
         base.Enter();
         
-        enemySkeleton.fx.InvokeRepeating("RedColorBlink",0f,0.1f);
-        stateTimer = enemySkeleton.stunDuration;
-        myrb.velocity=new Vector2(-enemySkeleton.facingDir * enemySkeleton.stunDirection.x,enemySkeleton.stunDirection.y);
+        enemy.fx.InvokeRepeating("RedColorBlink",0f,0.1f);
+        stateTimer = enemy.stunDuration;
+        rb.velocity=new Vector2(-enemy.facingDir * enemy.stunDirection.x,enemy.stunDirection.y);
 
 
     }
@@ -23,11 +23,11 @@ public class SkeletonStunnedState : EnemyState
     {
         base.Update();
         if(stateTimer < 0)
-            StateMachine.ChangeState(enemySkeleton.idleState);
+            StateMachine.ChangeState(enemy.idleState);
     }
     public override void Exit()
     {
         base.Exit();
-        enemySkeleton.fx.Invoke("CancelColorChange",0);
+        enemy.fx.Invoke("CancelColorChange",0);
     }
 }
