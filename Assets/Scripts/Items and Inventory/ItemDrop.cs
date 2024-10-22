@@ -13,6 +13,7 @@ public class ItemDrop : MonoBehaviour
 
     public virtual void GenerateDrop()
     {
+        Debug.Log("drop");
         for (int i = 0; i < possibleDrop.Length; i++)
         {
             if(Random.Range(0, 100) <= possibleDrop[i].dropChance)
@@ -24,7 +25,7 @@ public class ItemDrop : MonoBehaviour
             return;
         for (int i = 0; i < possibleItemDrop; i++)
         {
-            int ran =Random.Range(0, dropList.Count - 1);
+            int ran =Random.Range(0, dropList.Count);
             Debug.Log("ran"+ ran);
             ItemData randomItem = dropList[ran];
 

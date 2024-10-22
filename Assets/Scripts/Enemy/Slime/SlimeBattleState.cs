@@ -45,10 +45,11 @@ public class SlimeBattleState : EnemyState
         {
             moveDir =-1;
         }
+        Debug.Log(enemy.moveSpeed);
         if(enemy.IsPlayerDetected()  && enemy.IsPlayerDetected().distance < enemy.attackDistance - .1f)
             return;
-
         enemy.SetVelocity(enemy.moveSpeed * moveDir,rb.velocity.y);
+
     }
     public override void Exit()
     {

@@ -7,9 +7,9 @@ using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
-[RequireComponent(typeof(EnemyStats))]
 [RequireComponent(typeof(EntityFX))]
 [RequireComponent(typeof(ItemDrop))]
+[RequireComponent(typeof(EnemyStats))]
 public class Enemy : Entity
 {
     [SerializeField] protected LayerMask whatIsPlayer;
@@ -43,15 +43,15 @@ public class Enemy : Entity
         base.Reset();
         stunDuration = 1;
         stunDirection = new Vector2(10,12);
-        defaultMoveSpeed=moveSpeed;
-        moveSpeed = 1.2f;
+        defaultMoveSpeed=2;
+        moveSpeed = 2f;
         idleTime = 2;
         battleTime = 7;
         agroDistance = 2;
         attackDistance = 2;
         minAttackCooldown=1;
         maxAttackCooldown=2;
-        whatIsPlayer =LayerMask.GetMask("Player");
+        whatIsPlayer = LayerMask.GetMask("Player");
          
 
     }
@@ -59,9 +59,6 @@ public class Enemy : Entity
     protected override void Awake() {
         base.Awake();
         stateMachine = new EnemyStateMachine();
-
-
-
     }
     protected override void Start()
     {
