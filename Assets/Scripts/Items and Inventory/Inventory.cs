@@ -8,6 +8,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour, ISaveManager
 {
     public static Inventory instance;
+    public bool canAddItemStart;
 
     public List<ItemData> startingItem;
 
@@ -110,9 +111,10 @@ public class Inventory : MonoBehaviour, ISaveManager
             statSlot[i].UpdateStatValueUI();
         }
     }
-
+    
     private void AddStartingItem()
     {
+        
         foreach (ItemData_Equipment item in loadedEquipment)
         {
             EquipItem(item);
@@ -128,6 +130,8 @@ public class Inventory : MonoBehaviour, ISaveManager
             }
             return;
         }
+        if(!canAddItemStart)
+            return;
         for (int i = 0; i < startingItem.Count; i++)
         {
             if(startingItem[i] != null)

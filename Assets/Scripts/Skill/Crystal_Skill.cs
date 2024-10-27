@@ -186,7 +186,6 @@ public class Crystal_Skill : Skill
     }
     private void ResetAbility()
     {
-        Debug.Log("reset");
         if(cooldownTimer>0)
             return;
         cooldownTimer=multiStackCooldown;

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+
 
 public class PlayerDashState : PlayerState
 {
@@ -14,6 +11,7 @@ public class PlayerDashState : PlayerState
         player.skill.dash.cloneOnDash();
         stateTimer=player.dashDuration;
         player.stats.MakeInvincible(true);
+        cc.enabled=false;
     }
     public override void Update()
     {
@@ -32,6 +30,7 @@ public class PlayerDashState : PlayerState
         player.SetVelocity(0,myrb.velocity.y);
         player.skill.dash.CloneOnArrival();
         player.stats.MakeInvincible(false);
+        cc.enabled=true;
 
 
 

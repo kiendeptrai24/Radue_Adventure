@@ -15,12 +15,14 @@ public class ShadyGroundedState : EnemyState
         base.Enter();
         player = PlayerManager.instance.player.transform;
 
+
     }
     public override void Update() 
     {
         base.Update();
         if(enemy.IsPlayerDetected() || Vector2.Distance(enemy.transform.position, player.position) < enemy.agroDistance)
             StateMachine.ChangeState(enemy.battleState);
+
 
     }
     public override void Exit()

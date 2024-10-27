@@ -19,6 +19,7 @@ public class ShadyIdleState : ShadyGroundedState
         base.Update();
         if(stateTimer < 0)
             StateMachine.ChangeState(enemy.moveState);
+
     }
     public override void Exit()
     {

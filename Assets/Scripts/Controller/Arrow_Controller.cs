@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class Arrow_Controller : MonoBehaviour
@@ -13,12 +14,15 @@ public class Arrow_Controller : MonoBehaviour
     private void Update() {
         if(canMove)
             rb.velocity = new Vector2(xVelocity,rb.velocity.y);
+
+
+
     }
     public void SetupArrow(float _speed,CharacterStats _stats)
     {
         xVelocity = _speed;
         stats = _stats;
-        if(_speed <0)
+        if(_speed < 0)
             transform.Rotate(0,180,0);
     }
     private void OnTriggerEnter2D(Collider2D other) {

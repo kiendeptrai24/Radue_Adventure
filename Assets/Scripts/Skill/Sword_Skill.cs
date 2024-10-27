@@ -15,20 +15,25 @@ public class Sword_Skill : Skill
 
     public SwordType swordType=SwordType.Regular;
 
-
+    [HideInInspector] public bool stateCooldown;
+    [HideInInspector] public float timeCooldown;
     [Header("Bounce info")]
     [SerializeField] private UI_SkillTreeSlot bounceUnlockButton;
-
+    [SerializeField] private float bounceCooldown=.35f;
     [SerializeField] private int bounceAmount;
     [SerializeField] private float bounceGravity;
     [SerializeField] private float bounceSpeed;
 
     [Header("Peirce info")]
     [SerializeField] private UI_SkillTreeSlot pierceUnlockButton;
+    [SerializeField] private float peirceCooldown=2f;
+
     [SerializeField] private int pierceAmount;
     [SerializeField] private float pierceGravity;
     [Header("Spin info")]
     [SerializeField] private UI_SkillTreeSlot spinUnlockButton;
+    [SerializeField] private float spinCooldown=5f;
+
     [SerializeField] private float hitCooldown=.35f;
     [SerializeField] private float maxTravelDistance=7;
     [SerializeField] private float spinDuration=2;
@@ -61,8 +66,10 @@ public class Sword_Skill : Skill
     {
         base.Start();
         SetupGravity();
-
-       
+    }
+    public override bool CanUseSkill()
+    {
+        return base.CanUseSkill();
     }
     protected override void AddButtonSkillTree()
     {
@@ -109,17 +116,26 @@ public class Sword_Skill : Skill
     private void UnlockBounceSword()
     {
         if(bounceUnlockButton.unlocked)
+        {
             swordType = SwordType.Bounce;
+            cooldown = bounceCooldown;
+        }
     }
     private void UnlockPierceSword()
     {
         if(pierceUnlockButton.unlocked)
+        {
             swordType = SwordType.Pierce;
+            cooldown = peirceCooldown;
+        }
     }
     private void UnlockSpinSword()
     {
         if(spinUnlockButton.unlocked)
+        {
             swordType = SwordType.Spin;
+            cooldown = spinCooldown;
+        }
     }
 
     #endregion
@@ -135,9 +151,10 @@ public class Sword_Skill : Skill
     }
 
     protected override void Update() {
+        base.Update();
         //add here
         SetupGravity();
-
+        timeCooldown -= Time.deltaTime;
         if(Input.GetKeyUp(KeyCode.Mouse1)) 
         {
             finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
@@ -154,6 +171,7 @@ public class Sword_Skill : Skill
     {
         GameObject newSword = Instantiate(swordPrefab,player.transform.position,transform.rotation);
         Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
+        player.AssignNewSword(newSword);
 
         if(swordType==SwordType.Bounce)
             newSwordScript.SetupBounce(true,bounceAmount,bounceSpeed);
@@ -163,7 +181,6 @@ public class Sword_Skill : Skill
             newSwordScript.SetupSpin(true,maxTravelDistance,spinDuration,hitCooldown);
         
         newSwordScript.SetupSword(finalDir,swordGravity,player,freezeTimeDuration,returnSpeed);
-        player.AssignNewSword(newSword);
         ObjectPooling.instance.DotsActive(false);
         
     }

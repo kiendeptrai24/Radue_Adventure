@@ -49,6 +49,7 @@ public class PlayerCounterAttackState : PlayerState
 
     private void SuccessfullCounterAttack()
     {
+        player.skill.parry.stateCooldown = true;
         stateTimer = 10;//any value bigger 1
         player.anim.SetBool("SuccessfullCounterAttack", true);
     }

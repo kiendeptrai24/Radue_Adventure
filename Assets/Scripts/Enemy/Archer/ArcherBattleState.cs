@@ -39,11 +39,14 @@ public class ArcherBattleState : EnemyState
                     StateMachine.ChangeState(enemy.attackState);
                 }
             }
+            else{
+                StateMachine.ChangeState(enemy.idleState);
+            }
         }
         else
         {
-
-            StateMachine.ChangeState(enemy.idleState);
+            if(stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 7)
+                StateMachine.ChangeState(enemy.idleState);
         }
 
         BattleStateFlipControll();

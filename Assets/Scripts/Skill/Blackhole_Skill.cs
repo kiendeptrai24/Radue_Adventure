@@ -38,10 +38,7 @@ public class Blackhole_Skill : Skill
     {
         blackHoleUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockBlackHole);
     }
-    public override bool CanUseSkill()
-    {
-        return base.CanUseSkill();
-    }
+
     public override void UseSkill()
     {
         base.UseSkill();

@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3585398319537196914}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.33444, y: -0.59300756, z: 0.14006346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -236,10 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength:
-    baseValue: 0
+    baseValue: 100
     modifiers: 
   agility:
-    baseValue: 0
+    baseValue: 20
     modifiers: 
   intelligence:
     baseValue: 0
@@ -248,19 +248,19 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   damage:
-    baseValue: 75
+    baseValue: 150
     modifiers: 
   critChance:
-    baseValue: 0
+    baseValue: 40
     modifiers: 
   critPower:
-    baseValue: 0
+    baseValue: 100
     modifiers: 
   maxHealth:
     baseValue: 500
     modifiers: 
   armor:
-    baseValue: 0
+    baseValue: 15
     modifiers: 
   evasion:
     baseValue: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   fireDamage:
-    baseValue: 0
+    baseValue: 20
     modifiers: 
   iceDamage:
     baseValue: 0
@@ -281,10 +281,10 @@ MonoBehaviour:
   isIgnited: 0
   isChilled: 0
   isShocked: 0
-  shockStrikePrefab: {fileID: 0}
+  shockStrikePrefab: {fileID: 8614515725439232526, guid: 8f1a706c1153e63449682d0f6d987fcc, type: 3}
   currentHealth: 0
   soulsDropAmount:
-    baseValue: 0
+    baseValue: 400
     modifiers: 
   level: 1
   percantageModifier: 0.4
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f064f45c186ec4e92ad6d5f5465086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleItemDrop: 2
+  maxItemsToDrop: 2
   possibleDrop:
   - {fileID: 11400000, guid: 1eb61fef5cb82dd46a6d0b3c370f0a3a, type: 2}
   - {fileID: 11400000, guid: d26eb820fe77665448fb9d4e3e625f38, type: 2}
@@ -366,10 +366,10 @@ MonoBehaviour:
   stunDuration: 1
   stunDirection: {x: 10, y: 12}
   counterImage: {fileID: 8152228212637454419}
-  moveSpeed: 2
+  moveSpeed: 3
   idleTime: 2
-  battleTime: 7
-  defaultMoveSpeed: 2
+  battleTime: 12
+  defaultMoveSpeed: 3
   agroDistance: 5
   attackDistance: 0.5
   attackCooldown: 0

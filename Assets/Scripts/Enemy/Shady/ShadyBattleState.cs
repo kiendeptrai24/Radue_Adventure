@@ -27,6 +27,7 @@ public class ShadyBattleState : EnemyState
     public override void Update()
     {
         base.Update();
+
         if (enemy.IsPlayerDetected())
         {
             stateTimer = enemy.battleTime;
@@ -37,12 +38,13 @@ public class ShadyBattleState : EnemyState
         }
         else
         {
-            if(stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 7)
+            if(stateTimer < 0 && Vector2.Distance(player.transform.position, enemy.transform.position) > 7)
                 StateMachine.ChangeState(enemy.idleState);
         }
+        if(enemy.IsWallDetected())
+            enemy.Flip();
 
         BattleStateFlipControll();
-
         enemy.SetVelocity(enemy.moveSpeed * moveDir,rb.velocity.y);
     }
 
@@ -50,27 +52,15 @@ public class ShadyBattleState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        enemy.moveSpeed =defaultSpeed;
+        enemy.moveSpeed = defaultSpeed;
 
     }
     private void BattleStateFlipControll()
     {
-        if (player.position.x > enemy.transform.position.x && enemy.facingDir == -1)
+        if (player.position.x > enemy.transform.position.x)
             moveDir = 1;
-        else if (player.position.x < enemy.transform.position.x && enemy.facingDir == 1)
+        else if (player.position.x < enemy.transform.position.x)
             moveDir = -1;
-    }
-    private bool CanAttack()
-    {
-        if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
-        {
-            enemy.attackCooldown = Random.Range(enemy.minAttackCooldown,enemy.maxAttackCooldown);
-            enemy.lastTimeAttacked=Time.time;
-            return true;
-        }
-        //attack is on cooldown
-        
-        return false;
     }
 
 }

@@ -18,7 +18,7 @@ public class enemy_Skeleton : Enemy
         nameOfChar = "Skeleton";
         idleState = new SkeletonIdleState(this, stateMachine,"Idle",this);
         moveState = new SkeletonMoveState(this, stateMachine,"Move",this);
-        battleState = new SkeletonBattleState(this, stateMachine,"Move",this);
+        battleState = new SkeletonBattleState(this, stateMachine,"Battle",this);
         attackState = new SkeletonAttackState(this,stateMachine,"Attack",this);
         stunnedState = new SkeletonStunnedState(this, stateMachine,"Stunned",this);
         deadState = new SkeletonDeadState(this, stateMachine,"Idle",this);

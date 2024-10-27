@@ -39,7 +39,6 @@ public class EnemyState
     }
     public virtual void AnimationFinishTrigger()
     {
-        Debug.Log("True");
         triggerCalled = true;
     } 
     

@@ -7,6 +7,7 @@ public class SkeletonBattleState : EnemyState
     private enemy_Skeleton enemy;
 
     private int moveDir;
+    private bool flippedOne;
     public SkeletonBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         enemy = _enemy;
@@ -17,10 +18,14 @@ public class SkeletonBattleState : EnemyState
         player= PlayerManager.instance.player.transform;
         if(player.GetComponent<PlayerStats>().isDead)
             StateMachine.ChangeState(enemy.moveState);
+        flippedOne=false;
+        stateTimer = enemy.battleTime;
+        
     }
     public override void Update() 
     {
         base.Update();
+        enemy.anim.SetFloat("xVelocity", enemy.rb.velocity.x);
         if(enemy.IsPlayerDetected())
         {
             stateTimer = enemy.battleTime;
@@ -34,10 +39,17 @@ public class SkeletonBattleState : EnemyState
         }
         else
         {
-
-            StateMachine.ChangeState(enemy.idleState);
+            if(flippedOne == false)
+            {
+                flippedOne = true;
+                enemy.Flip();
+            }
+            if(stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 7)
+                StateMachine.ChangeState(enemy.idleState);
         }
-
+        float distanceToPlayerX = Mathf.Abs(player.position.x - enemy.transform.position.x);
+        if(distanceToPlayerX < 2)
+            return;
         if(player.position.x >enemy.transform.position.x)
         {
             moveDir = 1;
@@ -46,7 +58,6 @@ public class SkeletonBattleState : EnemyState
         {
             moveDir =-1;
         }
-
         enemy.SetVelocity(enemy.moveSpeed * moveDir,rb.velocity.y);
     }
     public override void Exit()

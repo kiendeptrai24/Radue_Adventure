@@ -47,6 +47,7 @@ public class Enemy_Shady : Enemy
     public override void Die()
     {
         base.Die();
+        Debug.Log("die");
         stateMachine.ChangeState(deadState);
     }
     public override void AnimationSpecialAttackTrigger()

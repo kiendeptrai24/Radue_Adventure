@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ItemDrop : MonoBehaviour
 {
-    [SerializeField] private int possibleItemDrop;
+    [SerializeField] private int maxItemsToDrop;
     [SerializeField] private ItemData[] possibleDrop;
     private List<ItemData> dropList = new List<ItemData>();
 
@@ -21,15 +21,14 @@ public class ItemDrop : MonoBehaviour
                 dropList.Add(possibleDrop[i]);
             }
         }
-        if(dropList.Count <= 1)
+        if(dropList.Count <= 0)
             return;
-        for (int i = 0; i < possibleItemDrop; i++)
+        for (int i = 0; i < maxItemsToDrop; i++)
         {
             int ran =Random.Range(0, dropList.Count);
-            Debug.Log("ran"+ ran);
             ItemData randomItem = dropList[ran];
 
-            dropList.Remove(randomItem);
+            //dropList.Remove(randomItem);
             DropItem(randomItem);
         }
 

@@ -15,20 +15,20 @@ MonoBehaviour:
   itemType: 1
   itemName: The book
   itemIcon: {fileID: -1985898824, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: 5ceaa13987ff571408e80d9e3b7871fb
   dropChance: 0
   equipmentType: 2
   itemCooldown: 0
   itemEffects: []
-  itemEffectDescription: 
-  strength: 300
-  agility: 20
-  intelligence: 100
+  strength: 30
+  agility: 15
+  intelligence: 20
   vitality: 10
-  damage: 80
-  critChance: 20
+  damage: 23
+  critChance: 10
   critPower: 0
   maxHealth: 0
-  armor: 70
+  armor: 35
   evasion: 0
   magicResistance: 10
   fireDamage: 0

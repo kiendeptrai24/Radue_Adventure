@@ -14,14 +14,14 @@ public class PlayerCatchSwordState : PlayerState
         player.fx.PlayDustFX(); 
         player.fx.ScreenShake(player.fx.swordImpactShake);
 
-        sword =player.sword.transform;
+        sword = player.sword.transform;
         if(player.transform.position.x < sword.position.x && player.facingDir!=1)
             player.Flip();
         else if(player.transform.position.x > sword.position.x && player.facingDir==1)
             player.Flip();
 
         myrb.velocity = new Vector2(player.swordReturnImpact * -player.facingDir,myrb.velocity.y);
-       
+
     }
     public override void Update()
     {
@@ -35,7 +35,5 @@ public class PlayerCatchSwordState : PlayerState
         player.ZeroVelocity();
         player.StartCoroutine("BusyFor",.1f);
         player.hasSword = false;
-        
-
     }
 }

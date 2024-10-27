@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLayerName: Player
-  xVelocity: 8
+  xVelocity: 20
   rb: {fileID: 4900353816888268859}
   canMove: 1
   flipped: 0

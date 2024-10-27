@@ -613,19 +613,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength:
-    baseValue: 10
+    baseValue: 60
     modifiers: 
   agility:
     baseValue: 5
     modifiers: 
   intelligence:
-    baseValue: 0
+    baseValue: 10
     modifiers: 
   vitality:
     baseValue: 0
     modifiers: 
   damage:
-    baseValue: 9
+    baseValue: 70
     modifiers: 
   critChance:
     baseValue: 0
@@ -640,10 +640,10 @@ MonoBehaviour:
     baseValue: 20
     modifiers: 
   evasion:
-    baseValue: 0
+    baseValue: 12
     modifiers: 
   magicResistance:
-    baseValue: 50
+    baseValue: 15
     modifiers: 
   fireDamage:
     baseValue: 0
@@ -661,7 +661,7 @@ MonoBehaviour:
   shockStrikePrefab: {fileID: 8614515725439232526, guid: 8f1a706c1153e63449682d0f6d987fcc, type: 3}
   currentHealth: 0
   soulsDropAmount:
-    baseValue: 0
+    baseValue: 2000
     modifiers: 
   level: 1
   percantageModifier: 0.4
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f064f45c186ec4e92ad6d5f5465086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleItemDrop: 2
+  maxItemsToDrop: 3
   possibleDrop:
   - {fileID: 11400000, guid: 2391051c74cdc2a489569965e71fd9c9, type: 2}
   - {fileID: 11400000, guid: fa812fa85d9c8654784c982288718354, type: 2}

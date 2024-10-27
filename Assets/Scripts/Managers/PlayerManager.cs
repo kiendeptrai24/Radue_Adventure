@@ -32,7 +32,6 @@ public class PlayerManager : MonoBehaviour, ISaveManager
     {
         if(_data.currency == 0)
         {
-            currency = 100000;
             return;
         }
         this.currency = _data.currency;

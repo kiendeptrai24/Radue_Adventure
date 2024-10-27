@@ -65,4 +65,8 @@ public class EnemyStats : CharacterStats
         myDropSystem.GenerateDrop();
         Destroy(gameObject,5f);
     }
+    public override void KillEntity()
+    {
+        base.KillEntity();
+    }
 }

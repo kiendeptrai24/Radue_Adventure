@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum SlimeType{Big, Medium, Small}
@@ -57,10 +58,12 @@ public class Enemy_Slime : Enemy
     {
         base.Die();
         stateMachine.ChangeState(deadState);
-
         if(slimeType == SlimeType.Small)
             return;
-        CreateSlimes(slimesToCreate,slimePrefab);
+            if(slimePrefab != null)
+                CreateSlimes(slimesToCreate,slimePrefab);
+
+        
     }
     private void CreateSlimes(int _amountOfSlimes, GameObject _slimePrefab)
     {

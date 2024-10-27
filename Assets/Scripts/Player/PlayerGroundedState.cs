@@ -21,8 +21,16 @@ public class PlayerGroundedState : PlayerState
         else if(Input.GetKeyDown(KeyCode.R) && player.skill.blackhole.blackholeUnlocked && player.skill.blackhole.cooldownTimer > 0)
             player.fx.CreatePupUpText("Cooldown",Color.gray);
 
-        if(Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.swordUnlocked)
+        if(Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.swordUnlocked && player.skill.sword.timeCooldown < 0)
+        {
+            player.skill.sword.CanUseSkill();
             stateMachine.ChangeState(player.aimSwordState);
+        }
+        else if(Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.swordUnlocked && player.skill.sword.timeCooldown > 0){
+            player.skill.sword.CanUseSkill();
+        }
+
+            
         if(Input.GetKeyDown(KeyCode.Q) && player.skill.parry.parryUnlocked && player.skill.parry.cooldownTimer < 0)
             stateMachine.ChangeState(player.counterAttackState);
         if(Input.GetKeyDown(KeyCode.Mouse0))
@@ -34,7 +42,7 @@ public class PlayerGroundedState : PlayerState
     }
     private bool HasNoSword()
     {
-        if(!player.sword)
+        if(player.sword == null)
             return true;
         player.sword.GetComponent<Sword_Skill_Controller>().ReturnSword();
         return false;

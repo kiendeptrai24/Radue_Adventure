@@ -651,7 +651,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.57, y: -5.18, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.2000002, y: 1.2000002, z: 1.2000002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4874504879824479152}
@@ -740,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength:
-    baseValue: 10
+    baseValue: 30
     modifiers: 
   agility:
     baseValue: 5
@@ -752,7 +752,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   damage:
-    baseValue: 9
+    baseValue: 40
     modifiers: 
   critChance:
     baseValue: 0
@@ -761,7 +761,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 1000
+    baseValue: 700
     modifiers: 
   armor:
     baseValue: 20
@@ -770,7 +770,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   magicResistance:
-    baseValue: 30
+    baseValue: 5
     modifiers: 
   fireDamage:
     baseValue: 0
@@ -779,7 +779,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   lightingDamage:
-    baseValue: 7
+    baseValue: 20
     modifiers: 
   ailmentDuration: 4
   isIgnited: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
   shockStrikePrefab: {fileID: 8614515725439232526, guid: 8f1a706c1153e63449682d0f6d987fcc, type: 3}
   currentHealth: 0
   soulsDropAmount:
-    baseValue: 0
+    baseValue: 1000
     modifiers: 
   level: 1
   percantageModifier: 0.4
@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f064f45c186ec4e92ad6d5f5465086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleItemDrop: 0
+  maxItemsToDrop: 2
   possibleDrop:
   - {fileID: 11400000, guid: 2391051c74cdc2a489569965e71fd9c9, type: 2}
   - {fileID: 11400000, guid: 2391051c74cdc2a489569965e71fd9c9, type: 2}

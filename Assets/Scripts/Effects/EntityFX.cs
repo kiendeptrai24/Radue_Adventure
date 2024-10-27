@@ -31,6 +31,7 @@ public class EntityFX : MonoBehaviour
     [Header("Hit FX")]
     [SerializeField] private GameObject hitFx;
     [SerializeField] private GameObject criticalHitFx;
+    private GameObject myHealthBar;
 
 
 
@@ -39,6 +40,7 @@ public class EntityFX : MonoBehaviour
         player = PlayerManager.instance.player;
         sr = GetComponentInChildren<SpriteRenderer>();
         originalMat = sr.sharedMaterial;
+        myHealthBar =GetComponentInChildren<UI_HealthBar>().gameObject;
     }
 
     public void CreatePupUpText(string _text,Color _color)
@@ -57,9 +59,15 @@ public class EntityFX : MonoBehaviour
     public void MakeTransprent(bool _tranprent)
     {
         if(_tranprent)
+        {
             sr.color = Color.clear;
+            myHealthBar.SetActive(false);
+        }
         else
+        {
             sr.color = Color.white;
+            myHealthBar.SetActive(true);
+        }
     }
     public IEnumerator FlashFX()
     {
@@ -153,5 +161,6 @@ public class EntityFX : MonoBehaviour
         newHitFx.transform.Rotate(hitFxRotation);
         Destroy(newHitFx, .5f);
     }
+
 
 }

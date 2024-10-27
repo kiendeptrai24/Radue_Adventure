@@ -36,12 +36,18 @@ public class UI_InGame : MonoBehaviour
         UpdateSoulUI();
         if (Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked)
             SetCooldownOf(dashImage);
-        if (Input.GetKeyDown(KeyCode.Q) && skills.parry.parryUnlocked)
+        if (skills.parry.parryUnlocked && PlayerManager.instance.player.skill.parry.stateCooldown)
+        {
+            PlayerManager.instance.player.skill.parry.stateCooldown = false;
             SetCooldownOf(parryImage);
+        }
         if (Input.GetKeyDown(KeyCode.F) && skills.crystal.crystalUnlocked)
             SetCooldownOf(crystalImage);
-        if (Input.GetKeyDown(KeyCode.Mouse1) && skills.sword.swordUnlocked)
+        if (skills.sword.swordUnlocked && PlayerManager.instance.player.skill.sword.stateCooldown)
+        {
+            PlayerManager.instance.player.skill.sword.stateCooldown = false;
             SetCooldownOf(swordImage);
+        }
         if (Input.GetKeyDown(KeyCode.R) && skills.blackhole.blackholeUnlocked)
             SetCooldownOf(blackHoleImage);
         if (Input.GetKeyDown(KeyCode.Alpha1) && Inventory.instance.GetEquipment(EquipmentType.Flask) != null)

@@ -106,7 +106,7 @@ public class CloneSkill : Skill
         }
         GameObject newClone= Instantiate(clonePrefabs);
         newClone.GetComponent<CloneSkillController>().
-        SetUpClone(_clonePosition,cloneDuration,canAttack,_offset,FindClosestEnnemy(newClone.transform),canDuplicateClone,chanceToDuplicate,player, attackMultiplier);
+        SetUpClone(_clonePosition,cloneDuration,canAttack,_offset,canDuplicateClone,chanceToDuplicate,player, attackMultiplier);
     }
     
     public void CreateCloneWithDelay(Transform _enemyTransform)

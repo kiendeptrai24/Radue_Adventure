@@ -343,7 +343,7 @@ public class CharacterStats : MonoBehaviour
         isDead =true;
     }
     #region Stat calculations        
-    public void KillEntity()
+    public virtual void KillEntity()
     {
         if(!isDead)
             Die();
@@ -401,7 +401,7 @@ public class CharacterStats : MonoBehaviour
     }
     protected int CalculateCriticalDammage(int _damage)
     {
-        float totalCritPower =(critPower.GetValue() + strength.GetValue()) * .01f;
+        float totalCritPower =(critPower.GetValue() + strength.GetValue()) * Random.Range(.01f,.04f);
         float critDamage = _damage * totalCritPower;
         return Mathf.RoundToInt(critDamage);
     }

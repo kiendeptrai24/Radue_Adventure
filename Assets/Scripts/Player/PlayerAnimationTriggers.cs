@@ -32,7 +32,11 @@ public class PlayerAnimationTriggers : MonoBehaviour
     }
     private void ThrowSword()
     {
-        AudioManger.instance.PlayerSFX(27,null);
-        SkillManager.instance.sword.CreateSword();
+        if(player.sword == null)
+        {
+            AudioManger.instance.PlayerSFX(27,null);
+            SkillManager.instance.sword.CreateSword();
+        }
+
     }
 }

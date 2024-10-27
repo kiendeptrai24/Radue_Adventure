@@ -17,6 +17,7 @@ public class ArcherIdleState : ArcherGroundedState
     public override void Update() 
     {
         base.Update();
+        
         if(stateTimer < 0)
             StateMachine.ChangeState(enemy.moveState);
     }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Parry_Skill : Skill
 {
+    [HideInInspector] public bool stateCooldown;
     [Header("Parry")]
     [SerializeField] private UI_SkillTreeSlot parryUnlockbutton;
     public bool parryUnlocked { get; private set; }

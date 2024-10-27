@@ -32,5 +32,9 @@ public class PlayerAimSwordState : PlayerState
     {
         base.Exit();
         player.StartCoroutine("BusyFor",.2f);
+        player.skill.sword.stateCooldown = true;
+        player.skill.sword.timeCooldown = player.skill.sword.cooldown;
+
+
     }
 }
